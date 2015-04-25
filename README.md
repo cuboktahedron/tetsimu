@@ -19,7 +19,7 @@ Tetsimu - テトリスシミュレータ(v0.9)
 
 ## ライセンス
 1. 本ツールのライセンスについて  
-[MIT](https://github.com/cuboktahedron/tetsimu/MIT-LICENCE.txt)ライセンスです。
+[MIT](https://github.com/cuboktahedron/tetsimu/blob/master/MIT-LICENSE.txt)ライセンスです。
 
 2. 本ツールで利用するライブラリについて  
 各ライブラリのライセンスに基づいて再配布します。
