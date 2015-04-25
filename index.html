@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<title>Tetsimu - テトリスシミュレータ</title>
+<meta charset="utf-8">
+
+<meta name="description" content="テトリスの練習ができます。テト譜も出力できるので積みの考察などにどうぞ。">
+<meta name="author" content="cuboktahedron">
+
+<link rel="stylesheet" href="css/lib/html5-doctor-reset-stylesheet.min.css">
+<link rel="stylesheet" href="css/style.css">
+
+<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+<script src="https://fb.me/react-0.13.2.min.js"></script>
+<script src="https://fb.me/JSXTransformer-0.13.2.js"></script>
+<script src="js/lib/EventEmitter.min.js"></script>
+<script src="js/lib/keypress-2.1.0.min.js"></script>
+<script src="js/lib/mt.js"></script>
+
+<script src="js/global/global.js"></script>
+<script src="js/constants/constants.js"></script>
+<script src="js/dispatcher/dispatcher.js"></script>
+<script src="js/dispatcher/app-dispatcher.js"></script>
+
+<script src="js/model/cell-type.js"></script>
+<script src="js/model/context-builder.js"></script>
+<script src="js/model/description.js"></script>
+<script src="js/model/direction.js"></script>
+<script src="js/model/field.js"></script>
+<script src="js/model/field-deserializer.js"></script>
+<script src="js/model/field-serializer.js"></script>
+<script src="js/model/key-button.js"></script>
+<script src="js/model/histories.js"></script>
+<script src="js/model/hold.js"></script>
+<script src="js/model/next-generator.js"></script>
+<script src="js/model/nexts.js"></script>
+<script src="js/model/radix-converter.js"></script>
+<script src="js/model/steps.js"></script>
+<script src="js/model/tetrimino.js"></script>
+<script src="js/model/tetrimino-i.js"></script>
+<script src="js/model/tetrimino-j.js"></script>
+<script src="js/model/tetrimino-l.js"></script>
+<script src="js/model/tetrimino-o.js"></script>
+<script src="js/model/tetrimino-s.js"></script>
+<script src="js/model/tetrimino-t.js"></script>
+<script src="js/model/tetrimino-z.js"></script>
+<script src="js/model/url-parameter.js"></script>
+
+<script src="js/stores/store-base.js"></script>
+<script src="js/stores/config-store.js"></script>
+<script src="js/stores/controller-store.js"></script>
+<script src="js/stores/simu-store.js"></script>
+<script src="js/stores/replay-store.js"></script>
+
+<script src="js/actions/config-action.js"></script>
+<script src="js/actions/controller-action.js"></script>
+<script src="js/actions/field-replay-action.js"></script>
+<script src="js/actions/main-panel-action.js"></script>
+<script src="js/actions/operation-simu-panel-action.js"></script>
+<script src="js/actions/operation-replay-panel-action.js"></script>
+<script src="js/actions/replay-panel-action.js"></script>
+<script src="js/actions/simu-panel-action.js"></script>
+
+<script type="text/jsx" src="/js/components/config.jsx"></script>
+<script type="text/jsx" src="/js/components/description-replay.jsx"></script>
+<script type="text/jsx" src="/js/components/description-simu.jsx"></script>
+<script type="text/jsx" src="/js/components/field-replay.jsx"></script>
+<script type="text/jsx" src="/js/components/field-simu.jsx"></script>
+<script type="text/jsx" src="/js/components/hold-replay.jsx"></script>
+<script type="text/jsx" src="/js/components/hold-simu.jsx"></script>
+<script type="text/jsx" src="/js/components/left-replay.jsx"></script>
+<script type="text/jsx" src="/js/components/left-simu.jsx"></script>
+<script type="text/jsx" src="/js/components/main.jsx"></script>
+<script type="text/jsx" src="/js/components/next-replay.jsx"></script>
+<script type="text/jsx" src="/js/components/next-simu.jsx"></script>
+<script type="text/jsx" src="/js/components/operation-replay.jsx"></script>
+<script type="text/jsx" src="/js/components/operation-simu.jsx"></script>
+<script type="text/jsx" src="/js/components/replay.jsx"></script>
+<script type="text/jsx" src="/js/components/simu.jsx"></script>
+
+</head>
+<body>
+  <div id="react-content">
+    now loading..
+  </div>
+
+  <script type="text/jsx">
+    /**
+     * @jsx React.DOM
+     */
+    $(function() {
+      React.render(<MainPanel />, document.body);
+    });
+  </script>
+</body>
+</html>

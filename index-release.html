@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<html lang="ja">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<title>Tetsimu - テトリスシミュレータ</title>
+<meta charset="utf-8">
+
+<meta name="description" content="テトリスの練習ができます。テト譜も出力できるので積みの考察などにどうぞ。">
+<meta name="author" content="cuboktahedron">
+
+<link rel="stylesheet" href="css/lib/html5-doctor-reset-stylesheet.min.css">
+<link rel="stylesheet" href="css/style.css">
+
+<!--[if gte IE 9]><!-->
+<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+<script src="https://fb.me/react-0.13.2.min.js"></script>
+<script src="js/lib/EventEmitter.min.js"></script>
+<script src="js/lib/keypress-2.1.0.min.js"></script>
+<script src="js/lib/mt.js"></script>
+
+<script src="js/tetsimu.min.js"></script>
+<!--<![endif]-->
+<!--[if lt IE 9]>
+<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+<![endif]-->
+<script src="/share/js/tracking.js"></script>
+
+</head>
+<body>
+  <div id="react-content">
+    now loading..
+  </div>
+
+  <script>
+    $(function() {
+      if (window.C === undefined) {
+        $('#react-content').html('IE8以下は動作対象外です。');
+      } else {
+        React.render(React.createElement(MainPanel, null), document.body);
+      }
+    });
+  </script>
+</body>
+</html>

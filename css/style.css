@@ -1,0 +1,373 @@
+@charset "utf-8";
+
+body {
+  background: #202020;
+  font-family: Meiryo, 'メイリオ', Hiragino Kaku Gothic Pro, 'ヒラギノ角ゴ Pro W3', sans-serif;
+}
+
+#react-content {
+  color: white;
+  font-size: 32px;
+  font-weight: bold;
+  padding: 32px;
+}
+
+.main-panel {
+  background: #a03030;
+  border-radius: 64px;
+  margin: 16px;
+  padding: 32px;
+  position: relative;
+  width: 800px;
+  height: 520px;
+}
+
+.main-panel .status {
+  bottom: 8px;
+  color: #603030;
+  left: 64px;
+  padding: 2px;
+  position: absolute;
+}
+
+.main-panel .status div {
+  margin: 4px;
+}
+
+.status .mode {
+  background-color: black;
+  border-radius: 4px;
+  color: white;
+  padding: 2px;
+  text-align: center;
+}
+
+.status .version {
+  color: #603030;
+}
+
+.field-panel {
+  float:left;
+}
+
+.field {
+  background-color: black;
+  border-collapse: collapse;
+  padding: 8px;
+}
+
+.field-line:first-child {
+  border-bottom: solid 2px red;
+}
+
+.field-cell {
+  border: solid 1px gray;
+  height: 24px;
+  width: 24px;
+}
+
+.ghost-cell {
+  opacity: 0.5;
+}
+
+.type-none {
+  background: black;
+}
+
+.type-ojama {
+  background: white;
+}
+
+.type-i {
+  background: aqua;
+}
+
+.type-j {
+  background: #1E80FF;
+}
+
+.type-l {
+  background: darkorange;
+}
+
+.type-o {
+  background: yellow;
+}
+
+.type-s {
+  background: #00dd00;
+}
+
+.type-t {
+  background: magenta;
+}
+
+.type-z {
+  background: red;
+}
+
+.type-wall {
+}
+
+.hold-panel {
+}
+
+.hold-panel h1 {
+  background: #d03030;
+  border: solid 2px gray;
+  border-radius: 8px;
+  color: white;
+  margin: 0 12px;
+  text-align: center;
+}
+
+.hold {
+  background: #202020;
+  border: solid 2px gray;
+  border-radius: 32px;
+  margin: 8px auto;
+  padding: 16px;
+  width: 72px;
+}
+
+.hold.cannot-hold {
+  background: #0000ff;
+}
+
+.hold-line {
+
+}
+
+.hold-cell {
+  height: 24px;
+  width: 24px;
+}
+
+.hold-none {
+  margin: 24px 0;
+}
+
+.hold-i {
+  margin: 12px 0;
+}
+
+.hold-o {
+  margin-left: 12px;
+}
+
+
+.next-panel {
+  float: left;
+  width: 120px;
+}
+
+.next-panel h1 {
+  background: #d03030;
+  border: solid 2px gray;
+  border-radius: 8px;
+  color: white;
+  margin: 0 12px;
+  text-align: center;
+}
+
+.next {
+  background: #202020;
+  border: solid 2px gray;
+  border-radius: 32px;
+  margin: 8px auto;
+  padding: 16px;
+  width: 72px;
+}
+
+.next-line {
+
+}
+
+.next-cell {
+  height: 24px;
+  width: 24px;
+}
+
+.next-none {
+  margin: 24px 0;
+}
+
+.next-i {
+  margin: 12px 0;
+}
+
+.next-o {
+  margin-left: 12px;
+}
+
+.left-panel {
+  float: left;
+  margin-right: 8px;
+  width: 140px;
+}
+
+.description-panel {
+  width: 100%;
+}
+
+.description-panel p {
+  background: #dddddd;
+  border: solid 2px gray;
+  border-radius: 8px;
+  margin: 2px auto;
+  padding: 4px;
+  width: 90%;
+}
+
+.config-panel {
+  -moz-opacity: 0.9;
+  background-color: black;
+  height: 705px;
+  left: 0;
+  opacity:.90;
+  padding: 16px;
+  position: absolute;
+  top: 0;
+  width: 900px;
+  z-index:1000;
+}
+
+.inner-config-panel {
+  background-color: #404040;
+  color: yellow;
+  float: left;
+  height: 700px;
+  margin-right: 16px;
+  overflow: auto;
+  width: 500px;
+  z-index: 10001;
+}
+
+.inner-config-panel .config-title {
+  color: white;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 4px 0px 0px 4px;
+}
+
+.config-error div {
+  color: red;
+  height: 1em;
+  font-weight: bold;
+  margin: 2px;
+}
+
+ul.config-list {
+  float: left;
+  padding: 16px;
+}
+
+ul.config-list li {
+  clear: both;
+  list-style-type: none;
+}
+
+ul.config-list li select {
+  clear: both;
+  list-style-type: none;
+  margin: 2px;
+}
+
+ul.config-list div {
+  float: left;
+}
+
+ul.config-list div.title {
+  width: 160px;
+}
+
+ul.config-list input {
+  margin-left: 16px;
+}
+
+.config-button-area {
+  padding: 16px;
+}
+
+.config-button-area button {
+  margin: 2px;
+}
+
+#config-tab-bar {
+}
+
+.operation-panel {
+  float: left;
+  height: 520px;
+  width: 260px;
+}
+
+.operation-mode-panel {
+  height: 100%;
+  width: 100%;
+}
+
+.operation-panel h1 {
+  background: #d03030;
+  border: solid 2px gray;
+  border-radius: 8px;
+  color: white;
+  text-align: center;
+}
+
+.operation-panel a {
+  background-color: black;
+  border: solid 2px gray;
+  border-radius: 4px;
+  color: white;
+  display: block;
+  float: left;
+  font-weight: bold;
+  height: 24px;
+  line-height: 24px;
+  margin: 4px;
+  min-width: 60px;
+  padding: 2px;
+  text-align: center;
+  text-decoration: none;
+  vertical-align middle;
+}
+
+.operation-panel a:hover {
+  background-color: red;
+}
+
+.operation-panel span.seed {
+  color: #603030;
+}
+
+.operation-panel .url {
+  height: 160px;
+  min-width: 97%;
+  max-height: 160px;
+  max-width: 97%;
+  width: 97%;
+}
+
+.operation-simu-panel,
+.operation-replay-panel {
+  height: 100%;
+  position: relative;
+}
+
+.operation-panel div.bottom {
+  bottom: 0;
+  position: absolute;
+  right: 0;
+}
+
+.operation-sub-title {
+  background: green;
+  border: solid 2px gray;
+  border-radius: 8px;
+  clear: both;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+
