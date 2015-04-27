@@ -2,7 +2,7 @@
   'use strict';
 
   var NextGenerator = function() {
-    this._currentSet = [];
+    this.reset();
   };
 
   NextGenerator.Types = [
@@ -28,6 +28,16 @@
       this._currentSet.splice(index, 1);
 
       return type;
+    },
+
+    removeTypes: function(removeTypes) {
+      this._currentSet = this._currentSet.filter(function(type) {
+        return removeTypes.indexOf(type) === -1;
+      });
+    },
+
+    reset: function() {
+      this._currentSet = NextGenerator.Types.concat();
     }
   };
 

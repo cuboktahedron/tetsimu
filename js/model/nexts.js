@@ -37,6 +37,57 @@
       }
     },
 
+    setAndComplementTypes: function(types, prevTypes, generator) {
+      var complementedTypes = []
+        , mergeTypes = prevTypes.concat(types)
+        , removeTypes
+        , type
+        , i, len
+        , nextTypesSet
+
+      while((nextTypesSet = this._nextTypesSet(mergeTypes)).length > 0) {
+        generator.reset();
+        removeTypes = nextTypesSet.filter(function(type) {
+          return type !== C.CellType.None;
+        });
+        generator.removeTypes(removeTypes);
+
+        for (i = 0, len = nextTypesSet.length; i < len; i++) {
+          type = nextTypesSet[i];
+          if (type === C.CellType.None) {
+            type = generator.next();
+          }
+
+          complementedTypes.push(type);
+        }
+
+        mergeTypes = mergeTypes.slice(nextTypesSet.length);
+      }
+
+      this.types(complementedTypes.slice(prevTypes.length));
+    },
+
+    _nextTypesSet: function(types) {
+      var i
+        , len = types.length
+        , type
+        , typeSet = {};
+
+      if (len > 7) {
+        len = 7;
+      }
+
+      for (i = 0; i < len; i++) {
+        type = types[i];
+        if ((type in typeSet) && type !== C.CellType.None) {
+          return types.slice(0, i);
+        }
+        typeSet[type] = true;
+      }
+
+      return types.slice(0, 7);
+    },
+
     nextTypes: function() {
       var types = this._types.concat();
       types.splice(0, this._p + 1);

@@ -29,6 +29,83 @@
     deepEqual(nexts.next(), C.CellType.Z);
   });
 
+  test('未設定部のツモが補完されること', function() {
+    var nextGenerator = new C.NextGenerator()
+      , types =
+      [
+        C.CellType.None,
+        C.CellType.J,
+        C.CellType.None,
+        C.CellType.L,
+        C.CellType.None,
+        C.CellType.Z,
+        C.CellType.None,
+      ]
+      , prevTypes =
+      [
+        C.CellType.T,
+        C.CellType.S,
+      ];
+
+    nexts.setAndComplementTypes(types, prevTypes, nextGenerator);
+
+    var afterTypes = [];
+    afterTypes[0] = nexts.next();
+    afterTypes[1] = nexts.next();
+    afterTypes[2] = nexts.next();
+    afterTypes[3] = nexts.next();
+    afterTypes[4] = nexts.next();
+    afterTypes[5] = nexts.next();
+    afterTypes[6] = nexts.next();
+
+    deepEqual(afterTypes[1], C.CellType.J);
+    deepEqual(afterTypes[3], C.CellType.L);
+    deepEqual(afterTypes[5], C.CellType.Z);
+
+    var duplicatedTypes = prevTypes.concat(afterTypes).filter(function (type, i, self) {
+      return self.indexOf(type) !== i;
+    });
+    deepEqual(duplicatedTypes.length, 2);
+  });
+
+  test('7組1セット内に同一ミノが出現した場合はそこから次の7組1セットが始まること', function() {
+    var nextGenerator = new C.NextGenerator()
+      , types =
+      [
+        C.CellType.I,
+        C.CellType.None,
+        C.CellType.J,
+        C.CellType.I,
+        C.CellType.None,
+        C.CellType.None,
+        C.CellType.None,
+        C.CellType.None,
+        C.CellType.None,
+        C.CellType.None,
+      ]
+
+    nexts.setAndComplementTypes(types, [], nextGenerator);
+
+    var afterTypes = [];
+    afterTypes[0] = nexts.next();
+    afterTypes[1] = nexts.next();
+    afterTypes[2] = nexts.next();
+    afterTypes[3] = nexts.next();
+    afterTypes[4] = nexts.next();
+    afterTypes[5] = nexts.next();
+    afterTypes[6] = nexts.next();
+    afterTypes[7] = nexts.next();
+    afterTypes[8] = nexts.next();
+    afterTypes[9] = nexts.next();
+    deepEqual(afterTypes[0], C.CellType.I);
+    deepEqual(afterTypes[2], C.CellType.J);
+
+    var duplicatedTypes = afterTypes.slice(3).filter(function (type, i, self) {
+      return self.indexOf(type) !== i;
+    });
+    deepEqual(duplicatedTypes.length, 0);
+  });
+
   test('デシリアライズされること', function() {
     nexts.deserialize('asKU');
     nexts.next();
