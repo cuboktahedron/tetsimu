@@ -114,40 +114,11 @@
     },
 
     serialize: function() {
-      var i, len
-        , types = this.nextTypes()
-        , value
-        , result = ''
-        , radixConverter = new C.RadixConverter(64);
-
-      if (types.length % 2 != 0) {
-        types.push(C.CellType.None);
-      }
-
-      for (i = 0, len = types.length; i < len; i += 2) {
-        value = Number(types[i]) << 3;
-        value += Number(types[i + 1]);
-        result += radixConverter.convertFromDecimal(value);
-      }
-
-      return result;
+      return C.NextsSerializer.serialize(this.nextTypes());
     },
 
     deserialize: function(param) {
-      var i, len
-        , value
-        , radixConverter = new C.RadixConverter(64)
-        , types = [];
-
-      for (i = 0, len = param.length; i < len; i++) {
-        value = radixConverter.convertToDecimal(param[i]);
-        types.push('' + parseInt(value >> 3));
-        types.push('' + (value & 7)); // 7 = 0x000111
-      }
-
-      if (types.length > 0 && types[types.length - 1] === C.CellType.None) {
-        types.pop();
-      }
+      var types = C.NextsDeserializer.deserialize(param);
 
       this._p = -1;
       this.types(types);
