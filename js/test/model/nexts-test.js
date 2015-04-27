@@ -106,6 +106,35 @@
     deepEqual(duplicatedTypes.length, 0);
   });
 
+  test('固定ツモかどうかが判定できること', function() {
+    var nextGenerator = new C.NextGenerator()
+      , types =
+      [
+        C.CellType.I,
+        C.CellType.None,
+        C.CellType.J,
+        C.CellType.L,
+        C.CellType.None
+      ]
+
+    nexts.setAndComplementTypes(types, [], nextGenerator);
+
+    var typesFixed = nexts.nextTypesFixed();
+    deepEqual(typesFixed, [
+      true,
+      false,
+      true,
+      true,
+      false,
+    ]);
+  });
+
+  test('追加したツモは固定ツモではないこと', function() {
+    nexts.push(C.CellType.I);
+
+    deepEqual(nexts.nextTypesFixed(), []);
+  });
+
   test('デシリアライズされること', function() {
     nexts.deserialize('asKU');
     nexts.next();

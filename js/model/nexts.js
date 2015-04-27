@@ -4,6 +4,7 @@
   var Nexts = function() {
     this._p = -1;
     this._types = [];
+    this._typesFixed = [];
   };
 
   Nexts.prototype = {
@@ -44,6 +45,10 @@
         , type
         , i, len
         , nextTypesSet
+
+      this._typesFixed = types.map(function(type) {
+        return type !== C.CellType.None;
+      });
 
       while((nextTypesSet = this._nextTypesSet(mergeTypes)).length > 0) {
         generator.reset();
@@ -92,6 +97,12 @@
       var types = this._types.concat();
       types.splice(0, this._p + 1);
       return types;
+    },
+
+    nextTypesFixed: function() {
+      var typesFixed = this._typesFixed.concat();
+      typesFixed.splice(0, this._p + 1);
+      return typesFixed;
     },
 
     length: function() {
