@@ -30,8 +30,6 @@
     },
 
     _init: function(context) {
-      var nexts = context.nexts.concat();
-
       this._current = null,
       this._ghost = null,
       this._field = new C.Field(),
