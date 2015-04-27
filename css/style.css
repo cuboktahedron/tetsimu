@@ -179,6 +179,10 @@ body {
   width: 72px;
 }
 
+.next.fixed {
+  background: #900000;
+}
+
 .next-line {
 
 }

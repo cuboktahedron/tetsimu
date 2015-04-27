@@ -4,7 +4,8 @@
 var NextSimuPanel = React.createClass({
   getInitialState: function () {
     return {
-      nexts: C.SimuStore.nexts()
+      nexts: C.SimuStore.nexts(),
+      nextsFixed: C.SimuStore.nextsFixed()
     };
   },
 
@@ -18,18 +19,19 @@ var NextSimuPanel = React.createClass({
 
   onChange: function() {
     this.setState({
-      nexts: C.SimuStore.nexts()
+      nexts: C.SimuStore.nexts(),
+      nextsFixed: C.SimuStore.nextsFixed()
     });
   },
 
   render: function() {
     return <div className="next-panel">
     <h1>NEXT</h1>
-    <Next type={this.state.nexts[0]} index="0" />
-    <Next type={this.state.nexts[1]} index="1"/>
-    <Next type={this.state.nexts[2]} index="2"/>
-    <Next type={this.state.nexts[3]} index="3"/>
-    <Next type={this.state.nexts[4]} index="4"/>
+    <Next type={this.state.nexts[0]} fixed={!!this.state.nextsFixed[0]} index="0" />
+    <Next type={this.state.nexts[1]} fixed={!!this.state.nextsFixed[1]} index="1"/>
+    <Next type={this.state.nexts[2]} fixed={!!this.state.nextsFixed[2]} index="2"/>
+    <Next type={this.state.nexts[3]} fixed={!!this.state.nextsFixed[3]} index="3"/>
+    <Next type={this.state.nexts[4]} fixed={!!this.state.nextsFixed[4]} index="4"/>
     </div>
   }
 });
@@ -157,7 +159,7 @@ var Next = React.createClass({
       throw new Error('invalid type(' + this.props.type + ')');
     }
 
-    return <div className="next">
+    return <div className={"next" + (this.props.fixed ? " fixed" : "")}>
              {structure}
            </div>
   }

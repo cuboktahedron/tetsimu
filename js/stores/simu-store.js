@@ -48,6 +48,9 @@
       this._hold.deserialize(context.hold);
       this._field.deserialize(context.field);
       this._nexts.deserialize(context.nexts);
+
+      // TODO: prevTypes対応をする。
+      this._nexts.setAndComplementTypes(this._nexts.types(), [], this._nextGenerator);
       while (this._nexts.nextsLength() < 5) {
         this._nexts.push(this._nextGenerator.next());
       }
@@ -76,6 +79,10 @@
 
     nexts: function() {
       return this._nexts.nextTypes();
+    },
+
+    nextsFixed: function() {
+      return this._nexts.nextTypesFixed();
     },
 
     current: function() {
