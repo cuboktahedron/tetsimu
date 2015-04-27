@@ -30,6 +30,8 @@
     },
 
     _init: function(context) {
+      var prevs;
+
       this._current = null,
       this._ghost = null,
       this._field = new C.Field(),
@@ -47,8 +49,8 @@
       this._field.deserialize(context.field);
       this._nexts.deserialize(context.nexts);
 
-      // TODO: prevTypes対応をする。
-      this._nexts.setAndComplementTypes(this._nexts.types(), [], this._nextGenerator);
+      prevs = C.NextsDeserializer.deserialize(context.prevs);
+      this._nexts.setAndComplementTypes(this._nexts.types(), prevs, this._nextGenerator);
       while (this._nexts.nextsLength() < 5) {
         this._nexts.push(this._nextGenerator.next());
       }
@@ -333,6 +335,7 @@
         field: action.context.field,
         hold: action.context.hold,
         nexts: allNexts.serialize(),
+        prevs: '',
         steps: this._steps.serialize()
       };
       this.emit(C.Constants.Event.ChangeMode, mode, params);

@@ -243,6 +243,7 @@
       var params = {
         field: context.field,
         nexts: context.nexts,
+        prevs: context.prevs,
         hold: context.hold
       };
       this.emit(C.Constants.Event.ChangeMode, mode, params);
