@@ -2,6 +2,12 @@
   'use strict';
 
   var OperationEditPanelAction = {
+    cancel: function() {
+      C.AppDispatcher.handleViewAction({
+        actionType: C.Constants.Action.Edit.Cancel
+      });
+    },
+
     changeModeToSimu: function(context) {
       C.AppDispatcher.handleViewAction({
         actionType: C.Constants.Action.Edit.ChangeModeToSimu,

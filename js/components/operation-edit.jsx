@@ -132,6 +132,13 @@ var OperationEditPanel = React.createClass({
     C.OperationEditPanelAction.changeModeToSimu(this.props.context);
   },
 
+  onCancel: function() {
+    if (this.state.configuring) {
+      return;
+    }
+    C.OperationEditPanelAction.cancel();
+  },
+
   onConfigChange: function() {
     this.setState({
       configuring: false,
@@ -158,7 +165,8 @@ var OperationEditPanel = React.createClass({
             <a href="javascript:void(0)" onClick={this.onClear}>クリア</a>
 
             <div className="operation-sub-title">MODE</div>
-            <a href="javascript:void(0)" onClick={this.onChangeModeToSimu}>Simu</a>
+            <a href="javascript:void(0)" onClick={this.onChangeModeToSimu}>Simu(確定)</a>
+            <a href="javascript:void(0)" onClick={this.onCancel}>Simu(キャンセル)</a>
 
             <div className="operation-sub-title">TOOL</div>
             <a href="javascript:void(0)" onClick={this.onCreateUrlParameters}>URL出力</a>

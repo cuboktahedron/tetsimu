@@ -86,6 +86,11 @@
       this.emit(C.Constants.Event.SetUrl);
     },
 
+    cancel: function(action) {
+      var mode = C.Constants.Mode.Simu
+      this.emit(C.Constants.Event.ChangeMode, mode, {});
+    },
+
     changeModeToSimu: function(action) {
       var mode = C.Constants.Mode.Simu
 
@@ -163,6 +168,9 @@
     switch (action.actionType) {
       case C.Constants.Action.Edit.Initialize:
         EditStore.initialize(action);
+        break;
+      case C.Constants.Action.Edit.Cancel:
+        EditStore.cancel(action);
         break;
       case C.Constants.Action.Edit.Clear:
         EditStore.clear(action);

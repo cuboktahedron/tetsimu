@@ -16,6 +16,7 @@
     },
 
     Edit: {
+      Cancel: 'edit-cancel',
       ChangeModeToSimu: 'edit-changeModeToSimu',
       CreateUrlParameters: 'edit-createUrlParameters',
       Clear: 'edit-clear',
