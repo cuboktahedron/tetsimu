@@ -18,8 +18,7 @@ var NextEditPanel = React.createClass({
 
   onChange: function() {
     this.setState({
-      nexts: C.EditStore.nexts(),
-      nextsFixed: C.EditStore.nextsFixed()
+      nexts: C.EditStore.nexts().nexts
     });
   },
 
