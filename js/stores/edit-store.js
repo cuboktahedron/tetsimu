@@ -82,7 +82,6 @@
 
       parameters.push('v=' + C.Constants.Version);
 
-      debugger;
       this._urlParameters = parameters.join('&');
       this.emit(C.Constants.Event.SetUrl);
     },
@@ -92,6 +91,7 @@
 
       var params = {
         field: this._field.serialize(),
+        force: true,
         hold: this._hold.serialize(),
         nexts: C.NextsSerializer.serialize(this._nexts.types()),
         prevs: C.NextsSerializer.serialize(this._prevs.types()),
