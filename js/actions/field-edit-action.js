@@ -1,18 +1,18 @@
 (function() {
   'use strict';
 
-  var FieldAction = {
-    drawDot: function(type, x, y) {
+  var FieldEditAction = {
+    setCell: function(x, y, type) {
       C.AppDispatcher.handleViewAction({
-        actionType: C.Constants.Action.DrawDot,
-        type: type,
+        actionType: C.Constants.Action.Edit.SetCell,
         x: x,
-        y: y
+        y: y,
+        type: type
       })
     }
   };
 
-  C.FieldAction = FieldAction;
+  C.FieldEditAction = FieldEditAction;
 })();
 
 

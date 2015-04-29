@@ -7,6 +7,7 @@
     _nexts: new C.Nexts(),
     _prevs: new C.Nexts(),
     _nextGenerator: new C.NextGenerator(),
+    _selectedType: C.CellType.T, // TOOD: ここは選択する手段を別途用意する
     _urlParameters: '',
 
     initialize: function(action, force) {
@@ -47,6 +48,10 @@
 
     canHold: function() {
       return this._hold.canExchange();
+    },
+
+    selectedType: function() {
+      return this._selectedType;
     },
 
     urlParameters: function() {
@@ -107,6 +112,11 @@
 //      this.emit(C.Constants.Event.ChangeMode, mode, params);
     },
 
+    setCell: function(action) {
+      this._field.type(action.x, action.y, action.type);
+      this.emit(C.Constants.Event.Change);
+    },
+
     addChangeListener: function(callback) {
       this.addListener(C.Constants.Event.Change, callback);
     },
@@ -147,6 +157,9 @@
         break;
       case C.Constants.Action.Edit.ChangeModeToSimu:
         EditStore.changeModeToSimu(action);
+        break;
+      case C.Constants.Action.Edit.SetCell:
+        EditStore.setCell(action);
         break;
 
       default:

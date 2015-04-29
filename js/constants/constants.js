@@ -20,6 +20,7 @@
       CreateUrlParameters: 'edit-createUrlParameters',
       Clear: 'edit-clear',
       Initialize: 'edit-initialize',
+      SetCell: 'edit-setCell',
     },
 
     Simu: {

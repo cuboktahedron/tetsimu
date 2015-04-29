@@ -12,7 +12,6 @@ var OperationEditPanel = React.createClass({
 
   componentDidMount: function() {
     C.ControllerStore.addKeyListener(this.onKey);
-    C.EditStore.addChangeListener(this.onChange);
     C.EditStore.addSetUrlListener(this.onSetUrl);
     C.ConfigStore.addChangeListener(this.onConfigChange);
     C.ConfigStore.addCancelListener(this.onConfigCancel);
@@ -20,7 +19,6 @@ var OperationEditPanel = React.createClass({
 
   componentWillUnmount: function() {
     C.ControllerStore.removeKeyListener(this.onKey);
-    C.EditStore.removeChangeListener(this.onChange);
     C.EditStore.removeSetUrlListener(this.onSetUrl);
     C.ConfigStore.removeChangeListener(this.onConfigChange);
     C.ConfigStore.removeCancelListener(this.onConfigCancel);

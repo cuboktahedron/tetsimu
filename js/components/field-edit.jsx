@@ -21,6 +21,7 @@ var FieldEditPanel = React.createClass({
   getInitialState: function () {
     return {
       types: C.EditStore.fieldTypes(),
+      selectedType: C.EditStore.selectedType(),
     };
   },
 
@@ -38,6 +39,14 @@ var FieldEditPanel = React.createClass({
     });
   },
 
+  onSetCell: function(x, y, type) {
+    if (this.state.configuring) {
+      return;
+    }
+
+    C.FieldEditAction.setCell(x, y, type);
+  },
+
   render: function() {
     var that = this;
 
@@ -47,8 +56,8 @@ var FieldEditPanel = React.createClass({
             return <tr className="field-line" key={y}>
                 {row.map(function(type, x) {
                   var cellClass = "field-cell";
-
-                    return <td className={cellClass + " " + that._CellTypeClass[type]} key={x} />
+                    return <td className={cellClass + " " + that._CellTypeClass[type]} key={x}
+                               onClick={ function() { that.onSetCell(x, y, that.state.selectedType); } } />
                 })}
               </tr>
           }).reverse()}
