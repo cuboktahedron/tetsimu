@@ -324,6 +324,23 @@
       this.emit(C.Constants.Event.SetUrl);
     },
 
+    changeModeToEdit: function(action) {
+      var mode = C.Constants.Mode.Edit
+        , nexts = new C.Nexts()
+        , nextTypes = this.nexts();
+
+      nextTypes.unshift(this._current.type());
+      nexts.types(nextTypes);
+
+      var params = {
+        field: this._field.serialize(),
+        hold: this._hold.serialize(),
+        nexts: nexts.serialize(),
+        prevs: '',
+      };
+      this.emit(C.Constants.Event.ChangeMode, mode, params);
+    },
+
     changeModeToReplay: function(action) {
       var mode = C.Constants.Mode.Replay
         , allNextsTypes = this._nexts.types()
@@ -418,6 +435,9 @@
         break;
       case C.Constants.Action.Simu.CreateUrlParameters:
         SimuStore.createUrlParameters(action);
+        break;
+      case C.Constants.Action.Simu.ChangeModeToEdit:
+        SimuStore.changeModeToEdit(action);
         break;
       case C.Constants.Action.Simu.ChangeModeToReplay:
         SimuStore.changeModeToReplay(action);

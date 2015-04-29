@@ -243,6 +243,19 @@ var OperationSimuPanel = React.createClass({
     }, 0);
   },
 
+  _changeModeToEdit: function(state) {
+    if (state.down) {
+      this.onChangeModeToEdit();
+    }
+  },
+
+  onChangeModeToEdit: function() {
+    if (this.state.configuring) {
+      return;
+    }
+    C.OperationSimuPanelAction.changeModeToEdit(this.props.context);
+  },
+
   _changeModeToReplay: function(state) {
     if (state.down) {
       this.onChangeModeToReplay();
@@ -287,6 +300,7 @@ var OperationSimuPanel = React.createClass({
 
             <div className="operation-sub-title">MODE</div>
             <a href="javascript:void(0)" onClick={this.onChangeModeToReplay}>Replay</a>
+            <a href="javascript:void(0)" onClick={this.onChangeModeToEdit}>Edit</a>
 
             <div className="operation-sub-title">TOOL</div>
             <a href="javascript:void(0)" onClick={this.onCreateUrlParameters}>URL出力</a>

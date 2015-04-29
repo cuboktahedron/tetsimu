@@ -25,6 +25,7 @@
     Simu: {
       Back: 'simu-back',
       BackToHead: 'simu-backToHead',
+      ChangeModeToEdit: 'simu-changeModeToEdit',
       ChangeModeToSimu: 'simu-changeModeToSimu',
       ChangeModeToReplay: 'simu-changeModeToReplay',
       Clear: 'simu-clear',

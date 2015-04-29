@@ -78,6 +78,13 @@
       });
     },
 
+    changeModeToEdit: function(context) {
+      C.AppDispatcher.handleViewAction({
+        actionType: C.Constants.Action.Simu.ChangeModeToEdit,
+        context: context
+      });
+    },
+
     changeModeToReplay: function(context) {
       C.AppDispatcher.handleViewAction({
         actionType: C.Constants.Action.Simu.ChangeModeToReplay,
