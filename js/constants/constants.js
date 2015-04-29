@@ -15,6 +15,13 @@
       KeyUp: 'controller-KeyUp',
     },
 
+    Edit: {
+      ChangeModeToSimu: 'edit-changeModeToSimu',
+      CreateUrlParameters: 'edit-createUrlParameters',
+      Clear: 'edit-clear',
+      Initialize: 'edit-initialize',
+    },
+
     Simu: {
       Back: 'simu-back',
       BackToHead: 'simu-backToHead',
@@ -53,7 +60,8 @@
 
   Constants.Mode = {
     Simu: '0',
-    Replay: '1'
+    Replay: '1',
+    Edit: '2'
   };
 
   Constants.KeyNames = [

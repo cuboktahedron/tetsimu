@@ -51,6 +51,7 @@ var MainPanel = React.createClass({
 
     C.SimuStore.addChangeModeListener(this.onChangeMode);
     C.ReplayStore.addChangeModeListener(this.onChangeMode);
+    C.EditStore.addChangeModeListener(this.onChangeMode);
   },
 
   _restoreConfig: function() {
@@ -83,6 +84,7 @@ var MainPanel = React.createClass({
     C.keyListener.unregister_many(this._KeyCombos);
     C.SimuStore.addChangeModeListener(this.onChangeMode);
     C.ReplayStore.addChangeModeListener(this.onChangeMode);
+    C.EditStore.addChangeModeListener(this.onChangeMode);
   },
 
   render: function() {
@@ -97,6 +99,10 @@ var MainPanel = React.createClass({
 
     if (this.state.mode === C.Constants.Mode.Replay) {
       return <ReplayPanel context={this.state.context} />
+    }
+
+    if (this.state.mode === C.Constants.Mode.Edit) {
+      return <EditPanel context={this.state.context} />
     }
 
     return <div />
