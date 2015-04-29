@@ -4,8 +4,7 @@
   var EditStore = $.extend({
     _field: new C.Field(),
     _hold: new C.Hold(),
-    _nexts: new C.Nexts(),
-    _prevs: new C.Nexts(),
+    _nexts: new C.Nexts(), _prevs: new C.Nexts(),
     _nextGenerator: new C.NextGenerator(),
     _selectedType: C.CellType.T, // TOOD: ここは選択する手段を別途用意する
     _urlParameters: '',
@@ -83,6 +82,7 @@
 
       parameters.push('v=' + C.Constants.Version);
 
+      debugger;
       this._urlParameters = parameters.join('&');
       this.emit(C.Constants.Event.SetUrl);
     },
@@ -114,6 +114,21 @@
 
     setCell: function(action) {
       this._field.type(action.x, action.y, action.type);
+      this.emit(C.Constants.Event.Change);
+    },
+
+    setHold: function(action) {
+      if (this._hold.type() === C.CellType.None) {
+        this._hold.type(this._selectedType);
+      } else if (this._hold.type() !== this._selectedType) {
+        this._hold.type(this._selectedType);
+      } else if (this._hold.canExchange()) {
+        this._hold.exchange(this._selectedType);
+      } else {
+        this._hold.type(C.CellType.None);
+        this._hold.release();
+      }
+
       this.emit(C.Constants.Event.Change);
     },
 
@@ -160,6 +175,9 @@
         break;
       case C.Constants.Action.Edit.SetCell:
         EditStore.setCell(action);
+        break;
+      case C.Constants.Action.Edit.SetHold:
+        EditStore.setHold(action);
         break;
 
       default:

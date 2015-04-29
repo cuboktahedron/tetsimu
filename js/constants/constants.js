@@ -21,6 +21,7 @@
       Clear: 'edit-clear',
       Initialize: 'edit-initialize',
       SetCell: 'edit-setCell',
+      SetHold: 'edit-setHold',
     },
 
     Simu: {

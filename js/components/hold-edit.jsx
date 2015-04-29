@@ -5,7 +5,7 @@ var HoldEditPanel = React.createClass({
   getInitialState: function() {
     return {
       type: C.EditStore.holdType(),
-      canHold: C.EditStore.canHold()
+      canHold: C.EditStore.canHold(),
     }
   },
 
@@ -20,8 +20,12 @@ var HoldEditPanel = React.createClass({
   onChange: function() {
     this.setState({
       type: C.EditStore.holdType(),
-      canHold: C.EditStore.canHold()
+      canHold: C.EditStore.canHold(),
     });
+  },
+
+  onSetHold: function() {
+    C.HoldEditAction.SetHold();
   },
 
   // TODO: render各モードで共通化できないか？
@@ -149,7 +153,7 @@ var HoldEditPanel = React.createClass({
 
       return <div className="hold-panel">
                <h1>HOLD</h1>
-               <div className={clazz}>
+               <div className={clazz} onClick={this.onSetHold}>
                  {structure}
                </div>
              </div>
