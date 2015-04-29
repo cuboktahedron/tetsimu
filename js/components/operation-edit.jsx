@@ -4,6 +4,7 @@
 var OperationEditPanel = React.createClass({
   getInitialState: function() {
     return {
+      before: this.props.context.before,
       configuring: false,
       keyConfig: C.ConfigStore.keyConfig(C.Constants.Mode.Edit),
       urlParameters: C.EditStore.urlParameters()
@@ -166,7 +167,9 @@ var OperationEditPanel = React.createClass({
 
             <div className="operation-sub-title">MODE</div>
             <a href="javascript:void(0)" onClick={this.onChangeModeToSimu}>Simu(確定)</a>
-            <a href="javascript:void(0)" onClick={this.onCancel}>Simu(キャンセル)</a>
+            {(!!this.state.before) ?
+              <a href="javascript:void(0)" onClick={this.onCancel}>Simu(キャンセル)</a>
+              : "" }
 
             <div className="operation-sub-title">TOOL</div>
             <a href="javascript:void(0)" onClick={this.onCreateUrlParameters}>URL出力</a>

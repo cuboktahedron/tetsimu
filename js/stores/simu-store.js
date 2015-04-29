@@ -333,6 +333,7 @@
       nexts.types(nextTypes);
 
       var params = {
+        before: C.Constants.Mode.Simu,
         field: this._field.serialize(),
         hold: this._hold.serialize(),
         nexts: nexts.serialize(),
