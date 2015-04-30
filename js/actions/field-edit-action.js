@@ -10,12 +10,11 @@
       })
     },
 
-    setCell: function(x, y, type) {
+    setCell: function(x, y) {
       C.AppDispatcher.handleViewAction({
         actionType: C.Constants.Action.Edit.SetCell,
         x: x,
         y: y,
-        type: type
       })
     },
 

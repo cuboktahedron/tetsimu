@@ -22,7 +22,6 @@ var FieldEditPanel = React.createClass({
     return {
       isEditing: C.MouseStore.state().lButtonDown,
       types: C.EditStore.fieldTypes(),
-      selectedType: C.EditStore.selectedType(),
     };
   },
 
@@ -56,12 +55,12 @@ var FieldEditPanel = React.createClass({
     C.FieldEditAction.beginEdit(x, y);
   },
 
-  onSetCell: function(x, y, type) {
+  onSetCell: function(x, y) {
     if (this.state.configuring || !this.state.isEditing) {
       return;
     }
 
-    C.FieldEditAction.setCell(x, y, type);
+    C.FieldEditAction.setCell(x, y);
   },
 
   onEndEdit: function(x, y) {
@@ -83,7 +82,7 @@ var FieldEditPanel = React.createClass({
                   var cellClass = "field-cell";
                     return <td className={cellClass + " " + that._CellTypeClass[type]} key={x}
                                onMouseDown={ function() { that.onBeginEdit(x, y); } }
-                               onMouseOver={ function() { that.onSetCell(x, y, that.state.selectedType); } }
+                               onMouseOver={ function() { that.onSetCell(x, y); } }
                                onMouseUp={ function() { that.onEndEdit(); } } />
                 })}
               </tr>

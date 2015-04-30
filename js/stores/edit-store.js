@@ -122,7 +122,7 @@
     },
 
     setCell: function(action) {
-      this._setCell(action.x, action.y, action.type);
+      this._setCell(action.x, action.y, this._selectedType);
       this.emit(C.Constants.Event.Change);
     },
 
