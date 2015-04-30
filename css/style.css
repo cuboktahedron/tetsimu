@@ -319,7 +319,7 @@ ul.config-list input {
   text-align: center;
 }
 
-.operation-panel a {
+.operation-panel a.operation-btn {
   background-color: black;
   border: solid 2px gray;
   border-radius: 4px;
@@ -334,10 +334,9 @@ ul.config-list input {
   padding: 2px;
   text-align: center;
   text-decoration: none;
-  vertical-align middle;
 }
 
-.operation-panel a:hover {
+.operation-panel a.operation-btn:hover {
   background-color: red;
 }
 
@@ -385,15 +384,17 @@ div.color-pallet:after {
 div.color-pallet a {
   border: solid 2px black;
   border-radius: 4px;
+  color: black;
   display: block;
   float: left;
+  font-weight: bold;
   height: 32px;
   line-height: 32px;
   list-style-type: none;
   margin: 1px;
-  min-width: 32px;
   opacity: 0.4;
   text-align: center;
+  text-decoration: none;
   width: 32px;
 }
 

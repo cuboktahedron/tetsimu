@@ -2,8 +2,7 @@
  * @jsx React.DOM
  */
 var OperationReplayPanel = React.createClass({
-  getInitialState: function() {
-    return {
+  getInitialState: function() { return {
       configuring: false,
       keyConfig: C.ConfigStore.keyConfig(C.Constants.Mode.Replay),
       urlParameters: C.ReplayStore.urlParameters()
@@ -161,16 +160,16 @@ var OperationReplayPanel = React.createClass({
         <h1>OPERATION</h1>
         <div className="operation-mode-panel">
           <div className="operation-replay-panel">
-            <a href="javascript:void(0)" onClick={this.onBack}>&lt;</a>
-            <a href="javascript:void(0)" onClick={this.onForward}>&gt;</a>
-            <a href="javascript:void(0)" onClick={this.onBackToHead}>□</a>
+            <a className="operation-btn" href="javascript:void(0)" onClick={this.onBack}>&lt;</a>
+            <a className="operation-btn" href="javascript:void(0)" onClick={this.onForward}>&gt;</a>
+            <a className="operation-btn" href="javascript:void(0)" onClick={this.onBackToHead}>□</a>
 
             <div className="operation-sub-title">MODE</div>
-            <a href="javascript:void(0)" onClick={this.onChangeModeToSimu}>Simu</a>
+            <a className="operation-btn" href="javascript:void(0)" onClick={this.onChangeModeToSimu}>Simu</a>
 
             <div className="operation-sub-title">TOOL</div>
-            <a href="javascript:void(0)" onClick={this.onCreateUrlParameters}>URL出力</a>
-            <a href="javascript:void(0)" onClick={this.onConfigure}>設定</a>
+            <a className="operation-btn" href="javascript:void(0)" onClick={this.onCreateUrlParameters}>URL出力</a>
+            <a className="operation-btn" href="javascript:void(0)" onClick={this.onConfigure}>設定</a>
             <textarea id="url-output" className="url" readOnly="true" value={url} />
           </div>
           {this.state.configuring ? <ConfigPanel /> : false}

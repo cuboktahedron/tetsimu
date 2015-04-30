@@ -292,19 +292,19 @@ var OperationSimuPanel = React.createClass({
         <h1>OPERATION</h1>
         <div className="operation-mode-panel">
           <div className="operation-simu-panel">
-            <a href="javascript:void(0)" onClick={this.onBack}>&lt;</a>
-            <a href="javascript:void(0)" onClick={this.onForward}>&gt;</a>
-            <a href="javascript:void(0)" onClick={this.onRetry}>リトライ</a>
-            <a href="javascript:void(0)" onClick={this.onSuperRetry}>スーパーリトライ</a>
-            <a href="javascript:void(0)" onClick={this.onClear}>クリア</a>
+            <a className="operation-btn" href="javascript:void(0)" onClick={this.onBack}>&lt;</a>
+            <a className="operation-btn" href="javascript:void(0)" onClick={this.onForward}>&gt;</a>
+            <a className="operation-btn" href="javascript:void(0)" onClick={this.onRetry}>リトライ</a>
+            <a className="operation-btn" href="javascript:void(0)" onClick={this.onSuperRetry}>スーパーリトライ</a>
+            <a className="operation-btn" href="javascript:void(0)" onClick={this.onClear}>クリア</a>
 
             <div className="operation-sub-title">MODE</div>
-            <a href="javascript:void(0)" onClick={this.onChangeModeToReplay}>Replay</a>
-            <a href="javascript:void(0)" onClick={this.onChangeModeToEdit}>Edit</a>
+            <a className="operation-btn" href="javascript:void(0)" onClick={this.onChangeModeToReplay}>Replay</a>
+            <a className="operation-btn" href="javascript:void(0)" onClick={this.onChangeModeToEdit}>Edit</a>
 
             <div className="operation-sub-title">TOOL</div>
-            <a href="javascript:void(0)" onClick={this.onCreateUrlParameters}>URL出力</a>
-            <a href="javascript:void(0)" onClick={this.onConfigure}>設定</a>
+            <a className="operation-btn" href="javascript:void(0)" onClick={this.onCreateUrlParameters}>URL出力</a>
+            <a className="operation-btn" href="javascript:void(0)" onClick={this.onConfigure}>設定</a>
             <textarea id="url-output" className="url" readOnly="true" value={url} />
 
             <div className="bottom">

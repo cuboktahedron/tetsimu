@@ -181,12 +181,12 @@ var OperationEditPanel = React.createClass({
         <h1>OPERATION</h1>
         <div className="operation-mode-panel">
           <div className="operation-simu-panel">
-            <a href="javascript:void(0)" onClick={this.onClear}>クリア</a>
+            <a className="operation-btn" href="javascript:void(0)" onClick={this.onClear}>クリア</a>
 
             <div className="operation-sub-title">MODE</div>
-            <a href="javascript:void(0)" onClick={this.onChangeModeToSimu}>Simu(確定)</a>
+            <a className="operation-btn" href="javascript:void(0)" onClick={this.onChangeModeToSimu}>Simu(確定)</a>
             {(!!this.state.before) ?
-              <a href="javascript:void(0)" onClick={this.onCancel}>Simu(キャンセル)</a>
+              <a className="operation-btn" href="javascript:void(0)" onClick={this.onCancel}>Simu(キャンセル)</a>
               : "" }
 
             <div className="operation-sub-title">TOOL</div>
@@ -202,8 +202,8 @@ var OperationEditPanel = React.createClass({
               {this._renderColorPalletItem(C.CellType.None,  "type-none",  "")}
             </div>
 
-            <a href="javascript:void(0)" onClick={this.onCreateUrlParameters}>URL出力</a>
-            <a href="javascript:void(0)" onClick={this.onConfigure}>設定</a>
+            <a className="operation-btn" href="javascript:void(0)" onClick={this.onCreateUrlParameters}>URL出力</a>
+            <a className="operation-btn" href="javascript:void(0)" onClick={this.onConfigure}>設定</a>
             <textarea id="url-output" className="url" readOnly="true" value={url} />
           </div>
           {this.state.configuring ? <ConfigPanel /> : false}
