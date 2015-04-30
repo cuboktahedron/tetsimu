@@ -135,12 +135,20 @@
     },
 
     setHold: function(action) {
-      if (this._hold.type() === C.CellType.None) {
-        this._hold.type(this._selectedType);
-      } else if (this._hold.type() !== this._selectedType) {
-        this._hold.type(this._selectedType);
+      var selectedType = this._selectedType;
+      if (selectedType === C.CellType.Ojama) {
+        selectedType = C.CellType.None;
+      }
+
+      if (selectedType === C.CellType.None) {
+        this._hold.type(C.CellType.None);
+        this._hold.release();
+      } else if (this._hold.type() === C.CellType.None) {
+        this._hold.type(selectedType);
+      } else if (this._hold.type() !== selectedType) {
+        this._hold.type(selectedType);
       } else if (this._hold.canExchange()) {
-        this._hold.exchange(this._selectedType);
+        this._hold.exchange(selectedType);
       } else {
         this._hold.type(C.CellType.None);
         this._hold.release();
