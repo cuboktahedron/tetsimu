@@ -105,16 +105,15 @@
     },
 
     clear: function(action) {
-//      var mode = C.Constants.Mode.Edit
-//        , params = {
-//        force: true,
-//        field: '',
-//        hold: '',
-//        nexts: '',
-//        steps: ''
-//      };
-//
-//      this.emit(C.Constants.Event.ChangeMode, mode, params);
+      var mode = C.Constants.Mode.Edit
+        , params = {
+        field: '',
+        hold: '',
+        nexts: '',
+        prevs: ''
+      };
+
+      this.emit(C.Constants.Event.ChangeMode, mode, params);
     },
 
     beginSetCell: function(action) {
