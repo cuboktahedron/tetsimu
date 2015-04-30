@@ -23,6 +23,7 @@
       Clear: 'edit-clear',
       EndSetCell: 'edit-endSetCell',
       Initialize: 'edit-initialize',
+      SelectType: 'edit-selectType',
       SetCell: 'edit-setCell',
       SetHold: 'edit-setHold',
     },

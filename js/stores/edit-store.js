@@ -6,7 +6,7 @@
     _hold: new C.Hold(),
     _nexts: new C.Nexts(), _prevs: new C.Nexts(),
     _nextGenerator: new C.NextGenerator(),
-    _selectedType: C.CellType.T, // TOOD: ここは選択する手段を別途用意する
+    _selectedType: C.CellType.I,
     _urlParameters: '',
 
     initialize: function(action, force) {
@@ -149,6 +149,11 @@
       this.emit(C.Constants.Event.Change);
     },
 
+    selectType: function(action) {
+      this._selectedType = action.type;
+      this.emit(C.Constants.Event.Change);
+    },
+
     addChangeListener: function(callback) {
       this.addListener(C.Constants.Event.Change, callback);
     },
@@ -198,6 +203,9 @@
         break;
       case C.Constants.Action.Edit.EndSetCell:
         EditStore.endSetCell(action);
+        break;
+      case C.Constants.Action.Edit.SelectType:
+        EditStore.selectType(action);
         break;
       case C.Constants.Action.Edit.SetCell:
         EditStore.setCell(action);

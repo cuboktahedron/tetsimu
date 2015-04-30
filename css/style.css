@@ -375,3 +375,33 @@ ul.config-list input {
   text-align: center;
 }
 
+div.color-pallet:after {
+  content: "";
+  clear: both;
+  display: block;
+  height: 0;
+}
+
+div.color-pallet a {
+  border: solid 2px black;
+  border-radius: 4px;
+  display: block;
+  float: left;
+  height: 32px;
+  line-height: 32px;
+  list-style-type: none;
+  margin: 1px;
+  min-width: 32px;
+  opacity: 0.4;
+  text-align: center;
+  width: 32px;
+}
+
+div.color-pallet a.selected {
+  opacity: 1.0;
+}
+
+div.color-pallet a:hover {
+  border: solid 2px white;
+}
+

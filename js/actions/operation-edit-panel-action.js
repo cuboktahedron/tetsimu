@@ -27,6 +27,13 @@
         context: context
       });
     },
+
+    selectType: function(type) {
+      C.AppDispatcher.handleViewAction({
+        actionType: C.Constants.Action.Edit.SelectType,
+        type: type
+      });
+    },
   };
 
   C.OperationEditPanelAction = OperationEditPanelAction;
