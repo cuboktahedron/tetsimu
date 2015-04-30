@@ -49,6 +49,14 @@ var MainPanel = React.createClass({
     C.keyListener.register_many(this._KeyCombos);
     this._restoreConfig();
 
+    $(document).mousedown(function(e) {
+      C.MouseAction.down(e);
+    });
+
+    $(document).mouseup(function(e) {
+      C.MouseAction.up(e);
+    });
+
     C.SimuStore.addChangeModeListener(this.onChangeMode);
     C.ReplayStore.addChangeModeListener(this.onChangeMode);
     C.EditStore.addChangeModeListener(this.onChangeMode);

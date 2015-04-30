@@ -20,7 +20,7 @@ var FieldEditPanel = React.createClass({
 
   getInitialState: function () {
     return {
-      isEditing: C.EditStore.isFieldEditing(),
+      isEditing: C.MouseStore.state().lButtonDown,
       types: C.EditStore.fieldTypes(),
       selectedType: C.EditStore.selectedType(),
     };
@@ -28,15 +28,22 @@ var FieldEditPanel = React.createClass({
 
   componentDidMount: function() {
     C.EditStore.addChangeListener(this.onChange);
+    C.MouseStore.addMouseListener(this.onMouseChange);
   },
 
   componentWillUnmount: function() {
     C.EditStore.removeChangeListener(this.onChange);
+    C.MouseStore.removeMouseListener(this.onMouseChange);
+  },
+
+  onMouseChange: function() {
+    this.setState({
+      isEditing: C.MouseStore.state().lButtonDown,
+    });
   },
 
   onChange: function() {
     this.setState({
-      isEditing: C.EditStore.isFieldEditing(),
       types: C.EditStore.fieldTypes(),
     });
   },

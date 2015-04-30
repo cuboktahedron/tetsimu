@@ -4,7 +4,6 @@
   var EditStore = $.extend({
     _field: new C.Field(),
     _hold: new C.Hold(),
-    _isFieldEditing: false,
     _nexts: new C.Nexts(), _prevs: new C.Nexts(),
     _nextGenerator: new C.NextGenerator(),
     _selectedType: C.CellType.T, // TOOD: ここは選択する手段を別途用意する
@@ -23,7 +22,6 @@
       this._nexts = new C.Nexts(),
       this._prevs = new C.Nexts(),
       this._nextGenerator = new C.NextGenerator(),
-      this._isFieldEditing = false;
 
       this._field.deserialize(context.field);
       this._hold.deserialize(context.hold);
@@ -53,10 +51,6 @@
 
     selectedType: function() {
       return this._selectedType;
-    },
-
-    isFieldEditing: function() {
-      return this._isFieldEditing;
     },
 
     urlParameters: function() {
@@ -125,7 +119,6 @@
 
     beginSetCell: function(action) {
       this._setCell(action.x, action.y, this._selectedType);
-      this._isFieldEditing = true;
       this.emit(C.Constants.Event.Change);
     },
 
@@ -139,7 +132,6 @@
     },
 
     endSetCell: function(action) {
-      this._isFieldEditing = false;
       this.emit(C.Constants.Event.Change);
     },
 
