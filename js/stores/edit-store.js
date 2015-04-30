@@ -4,6 +4,7 @@
   var EditStore = $.extend({
     _field: new C.Field(),
     _hold: new C.Hold(),
+    _isFieldEditing: false,
     _nexts: new C.Nexts(), _prevs: new C.Nexts(),
     _nextGenerator: new C.NextGenerator(),
     _selectedType: C.CellType.T, // TOOD: ここは選択する手段を別途用意する
@@ -22,6 +23,7 @@
       this._nexts = new C.Nexts(),
       this._prevs = new C.Nexts(),
       this._nextGenerator = new C.NextGenerator(),
+      this._isFieldEditing = false;
 
       this._field.deserialize(context.field);
       this._hold.deserialize(context.hold);
@@ -51,6 +53,10 @@
 
     selectedType: function() {
       return this._selectedType;
+    },
+
+    isFieldEditing: function() {
+      return this._isFieldEditing;
     },
 
     urlParameters: function() {
@@ -117,8 +123,23 @@
 //      this.emit(C.Constants.Event.ChangeMode, mode, params);
     },
 
+    beginSetCell: function(action) {
+      this._setCell(action.x, action.y, this._selectedType);
+      this._isFieldEditing = true;
+      this.emit(C.Constants.Event.Change);
+    },
+
     setCell: function(action) {
-      this._field.type(action.x, action.y, action.type);
+      this._setCell(action.x, action.y, action.type);
+      this.emit(C.Constants.Event.Change);
+    },
+
+    _setCell: function(x, y, type) {
+      this._field.type(x, y, type);
+    },
+
+    endSetCell: function(action) {
+      this._isFieldEditing = false;
       this.emit(C.Constants.Event.Change);
     },
 
@@ -169,6 +190,9 @@
       case C.Constants.Action.Edit.Initialize:
         EditStore.initialize(action);
         break;
+      case C.Constants.Action.Edit.BeginSetCell:
+        EditStore.beginSetCell(action);
+        break;
       case C.Constants.Action.Edit.Cancel:
         EditStore.cancel(action);
         break;
@@ -180,6 +204,9 @@
         break;
       case C.Constants.Action.Edit.ChangeModeToSimu:
         EditStore.changeModeToSimu(action);
+        break;
+      case C.Constants.Action.Edit.EndSetCell:
+        EditStore.endSetCell(action);
         break;
       case C.Constants.Action.Edit.SetCell:
         EditStore.setCell(action);
