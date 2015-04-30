@@ -27,6 +27,11 @@
       SetHold: 'edit-setHold',
     },
 
+    Mouse: {
+      Down: 'mouse-KeyDown',
+      Up: 'mouse-KeyUp',
+    },
+
     Simu: {
       Back: 'simu-back',
       BackToHead: 'simu-backToHead',
@@ -193,6 +198,10 @@
     "(",  //"9"
     ")"   //"0"
   ];
+
+  Constants.MouseButton = {
+    Left: 1,
+  };
 
   Constants.SpinType = {
     None: '0',
