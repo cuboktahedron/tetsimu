@@ -90,7 +90,13 @@
         actionType: C.Constants.Action.Simu.ChangeModeToReplay,
         context: context
       });
-    }
+    },
+
+    backToEditMode: function(context) {
+      C.AppDispatcher.handleViewAction({
+        actionType: C.Constants.Action.Simu.BackToEditMode,
+      });
+    },
   };
 
   C.OperationSimuPanelAction = OperationSimuPanelAction;

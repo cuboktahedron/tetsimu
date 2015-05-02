@@ -38,6 +38,7 @@
 
     Simu: {
       Back: 'simu-back',
+      BackToEditMode: 'simu-backToEditMode',
       BackToHead: 'simu-backToHead',
       ChangeModeToEdit: 'simu-changeModeToEdit',
       ChangeModeToSimu: 'simu-changeModeToSimu',

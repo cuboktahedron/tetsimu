@@ -4,6 +4,7 @@
 var OperationSimuPanel = React.createClass({
   getInitialState: function() {
     return {
+      before: this.props.context.before,
       configuring: false,
       keyConfig: C.ConfigStore.keyConfig(C.Constants.Mode.Simu),
       seed: C.SimuStore.seed(),
@@ -269,6 +270,13 @@ var OperationSimuPanel = React.createClass({
     C.OperationSimuPanelAction.changeModeToReplay(this.props.context);
   },
 
+  onBackToEditMode: function() {
+    if (this.state.configuring) {
+      return;
+    }
+    C.OperationSimuPanelAction.backToEditMode();
+  },
+
   onConfigChange: function() {
     this.setState({
       configuring: false,
@@ -301,6 +309,9 @@ var OperationSimuPanel = React.createClass({
             <div className="operation-sub-title">MODE</div>
             <a className="operation-btn" href="javascript:void(0)" onClick={this.onChangeModeToReplay}>Replay</a>
             <a className="operation-btn" href="javascript:void(0)" onClick={this.onChangeModeToEdit}>Edit</a>
+            {(!!this.state.before) ?
+              <a className="operation-btn" href="javascript:void(0)" onClick={this.onBackToEditMode}>戻る</a>
+              : "" }
 
             <div className="operation-sub-title">TOOL</div>
             <a className="operation-btn" href="javascript:void(0)" onClick={this.onCreateUrlParameters}>URL出力</a>

@@ -2,6 +2,7 @@
   'use strict';
 
   var EditStore = $.extend({
+    _initialized: false,
     _field: new C.Field(),
     _hold: new C.Hold(),
     _nextIndex: 0,
@@ -11,6 +12,12 @@
     _urlParameters: '',
 
     initialize: function(action, force) {
+      if (this._initialized && !action.context.force) {
+        return;
+      }
+
+      this._initialized = true;
+
       var context = action.context
 
       this._init(action.context);
@@ -101,6 +108,7 @@
       var mode = C.Constants.Mode.Simu
 
       var params = {
+        before: C.Constants.Mode.Edit,
         field: this._field.serialize(),
         force: true,
         hold: this._hold.serialize(),

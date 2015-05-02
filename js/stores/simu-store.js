@@ -335,11 +335,17 @@
       var params = {
         before: C.Constants.Mode.Simu,
         field: this._field.serialize(),
+        force: true,
         hold: this._hold.serialize(),
         nexts: nexts.serialize(),
         prevs: '',
       };
       this.emit(C.Constants.Event.ChangeMode, mode, params);
+    },
+
+    backToEditMode: function(action) {
+      var mode = C.Constants.Mode.Edit
+      this.emit(C.Constants.Event.ChangeMode, mode, {});
     },
 
     changeModeToReplay: function(action) {
@@ -443,6 +449,9 @@
         break;
       case C.Constants.Action.Simu.ChangeModeToReplay:
         SimuStore.changeModeToReplay(action);
+        break;
+      case C.Constants.Action.Simu.BackToEditMode:
+        SimuStore.backToEditMode(action);
         break;
 
       default:
