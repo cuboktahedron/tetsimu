@@ -113,6 +113,38 @@
       return this._types.length - (this._p + 1);
     },
 
+    typeAt: function(index, v) {
+      var i, len
+        , type
+        , lastIndexOfNotNone = -1;
+
+      if (v === undefined) {
+        // get
+        return this._types[index] || C.CellType.None;
+      } else {
+        // set
+        this._types[index] = v;
+
+        // 飛び飛びになっているかもしれないので間はNoneで埋める
+        for (i = this._types.length - 1; i >= 0; i--) {
+          type = this._types[i];
+          if (type === undefined) {
+            this._types[i] = C.CellType.None;
+          } else if (type !== C.CellType.None && lastIndexOfNotNone === -1) {
+            lastIndexOfNotNone = i;
+          }
+        }
+
+        if (this._types.length !== lastIndexOfNotNone + 1) {
+          // 末尾のNone要素を削除する
+          this._types.length = lastIndexOfNotNone + 1;
+
+          // 範囲外になるとまずいのでとりあえず初期化しておく
+          this._p = -1;
+        }
+      }
+    },
+
     serialize: function() {
       return C.NextsSerializer.serialize(this.nextTypes());
     },

@@ -168,4 +168,46 @@
 
     deepEqual(nexts.serialize(), 'asKU');
   });
+
+  test('指定位置のツモが取得できること', function() {
+    nexts.push(C.CellType.I);
+    nexts.push(C.CellType.T);
+    nexts.push(C.CellType.S);
+
+    deepEqual(nexts.typeAt(1), C.CellType.T);
+    deepEqual(nexts.typeAt(3), C.CellType.None);
+  });
+
+  test('指定位置にツモが設定できること', function() {
+    nexts.push(C.CellType.I);
+    nexts.push(C.CellType.T);
+    nexts.push(C.CellType.S);
+
+    nexts.typeAt(1, C.CellType.Z);
+    deepEqual(nexts.typeAt(1), C.CellType.Z);
+  });
+
+  test('数手先にツモを設定した場合間はNoneで埋められること', function() {
+    nexts.types([C.CellType.I]);
+
+    nexts.typeAt(3, C.CellType.Z);
+    deepEqual(nexts.types(), [
+      C.CellType.I,
+      C.CellType.None,
+      C.CellType.None,
+      C.CellType.Z,
+    ]);
+  });
+
+  test('指定してツモを設定した場合末尾のNoneが削除されること', function() {
+    nexts.types([
+      C.CellType.I,
+      C.CellType.None,
+      C.CellType.None,
+      C.CellType.Z
+    ]);
+
+    nexts.typeAt(3, C.CellType.None);
+    deepEqual(nexts.types(), [ C.CellType.I ]);
+  });
 })();
