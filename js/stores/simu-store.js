@@ -70,7 +70,7 @@
         this._seed = C.Random.nextInt(1000000);
       }
 
-      this._init(action.context);
+      this._init(this._context);
       this.emit(C.Constants.Event.Change);
     },
 
@@ -363,8 +363,8 @@
       allNexts.types(allNextsTypes);
 
       var params = {
-        field: action.context.field,
-        hold: action.context.hold,
+        field: this._context.field,
+        hold: this._context.hold,
         nexts: allNexts.serialize(),
         prevs: '',
         steps: this._steps.serialize()

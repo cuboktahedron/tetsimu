@@ -5,7 +5,6 @@ var OperationSimuPanel = React.createClass({
   getInitialState: function() {
     return {
       before: C.SimuStore.context().before,
-      context: C.SimuStore.context(),
       configuring: false,
       keyConfig: C.ConfigStore.keyConfig(C.Constants.Mode.Simu),
       seed: C.SimuStore.seed(),
@@ -144,7 +143,7 @@ var OperationSimuPanel = React.createClass({
     if (this.state.configuring) {
       return;
     }
-    C.OperationSimuPanelAction.retry(this.props.context, false);
+    C.OperationSimuPanelAction.retry(false);
   },
 
   _superRetry: function(state) {
@@ -157,7 +156,7 @@ var OperationSimuPanel = React.createClass({
     if (this.state.configuring) {
       return;
     }
-    C.OperationSimuPanelAction.retry(this.props.context, true);
+    C.OperationSimuPanelAction.retry(true);
   },
 
   _clear: function(state) {
@@ -255,7 +254,7 @@ var OperationSimuPanel = React.createClass({
     if (this.state.configuring) {
       return;
     }
-    C.OperationSimuPanelAction.changeModeToEdit(this.props.context);
+    C.OperationSimuPanelAction.changeModeToEdit();
   },
 
   _changeModeToReplay: function(state) {
@@ -268,7 +267,7 @@ var OperationSimuPanel = React.createClass({
     if (this.state.configuring) {
       return;
     }
-    C.OperationSimuPanelAction.changeModeToReplay(this.props.context);
+    C.OperationSimuPanelAction.changeModeToReplay();
   },
 
   onBackToEditMode: function() {

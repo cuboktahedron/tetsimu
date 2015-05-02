@@ -46,10 +46,9 @@
       });
     },
 
-    retry: function(context, isSuperRetry) {
+    retry: function(isSuperRetry) {
       C.AppDispatcher.handleViewAction({
         actionType: C.Constants.Action.Simu.Retry,
-        context: context,
         isSuperRetry: isSuperRetry
       });
     },
@@ -78,21 +77,19 @@
       });
     },
 
-    changeModeToEdit: function(context) {
+    changeModeToEdit: function() {
       C.AppDispatcher.handleViewAction({
         actionType: C.Constants.Action.Simu.ChangeModeToEdit,
-        context: context
       });
     },
 
-    changeModeToReplay: function(context) {
+    changeModeToReplay: function() {
       C.AppDispatcher.handleViewAction({
         actionType: C.Constants.Action.Simu.ChangeModeToReplay,
-        context: context
       });
     },
 
-    backToEditMode: function(context) {
+    backToEditMode: function() {
       C.AppDispatcher.handleViewAction({
         actionType: C.Constants.Action.Simu.BackToEditMode,
       });

@@ -140,7 +140,7 @@ var OperationEditPanel = React.createClass({
     if (this.state.configuring) {
       return;
     }
-    C.OperationEditPanelAction.changeModeToSimu(this.props.context);
+    C.OperationEditPanelAction.changeModeToSimu();
   },
 
   onCancel: function() {
