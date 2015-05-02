@@ -366,6 +366,7 @@
         field: '',
         hold: '',
         nexts: '',
+        prevs: '',
         steps: ''
       };
 
