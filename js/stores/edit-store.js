@@ -41,7 +41,7 @@
 
     nexts: function() {
       return {
-        prevs: this._prevs.types(),
+        prevs: this._prevs.types().slice(0, 6),
         nexts: this._nexts.types(),
         index: 0
       }
@@ -180,7 +180,7 @@
       }
 
       if (action.index < 0) {
-
+        this._prevs.typeAt(-(action.index + 1), selectedType);
       } else {
         this._nexts.typeAt(action.index, selectedType);
       }

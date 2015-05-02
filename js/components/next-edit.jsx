@@ -5,6 +5,7 @@ var NextEditPanel = React.createClass({
   getInitialState: function () {
     return {
       index: C.EditStore.NextIndex(),
+      prevs: C.EditStore.nexts().prevs,
       nexts: C.EditStore.nexts().nexts,
     };
   },
@@ -20,6 +21,7 @@ var NextEditPanel = React.createClass({
   onChange: function() {
     this.setState({
       index: C.EditStore.NextIndex(),
+      prevs: C.EditStore.nexts().prevs,
       nexts: C.EditStore.nexts().nexts
     });
   },
@@ -34,16 +36,46 @@ var NextEditPanel = React.createClass({
 
   render: function() {
     var that = this
-      , p = this.state.index;
+      , index = this.state.index
+      , i
+      , nexts = []
+      , begin, end;
+
+    if (index < 0) {
+      // prevsが見えている状態(prevs + nextsの混在の可能性があるため2段階に分けて処理する）
+
+      // prevsの処理
+      begin = -(index + 5);
+      if (begin < 0) {
+        begin = 0;
+      }
+      end = -(index + 1);
+
+      for(i = begin, count = 0; i <= end; i++, count++) {
+        nexts.push(<NextEditItem type={this.state.prevs[i]} index={-(i + 1)} isPrev={true} />);
+      }
+
+      // prevsのデータ形式は表示と逆順になっているので反転
+      nexts = nexts.reverse();
+
+      // nextsの処理
+      begin = 0;
+      end = (index + 5 - 1);
+      for(i = begin; i <= end; i++) {
+        nexts.push(<NextEditItem type={this.state.nexts[i]} index={i} isPrev={false} />);
+      }
+    } else {
+      // prevsが見えていない状態
+
+      for(i = index; i < index + 5; i++) {
+        nexts.push(<NextEditItem type={this.state.nexts[i]} index={i} isPrev={false} />);
+      }
+    }
 
     return <div className="next-panel">
       <h1>NEXT</h1>
       <a href="javascript:void(0)" className={"arrow" + ((this.state.index < -5) ? " invisible" : "")} onClick={this.onBack}>▲</a>
-      <NextEditItem type={this.state.nexts[p + 0]} index={ p + 0 } />
-      <NextEditItem type={this.state.nexts[p + 1]} index={ p + 1 } />
-      <NextEditItem type={this.state.nexts[p + 2]} index={ p + 2 } />
-      <NextEditItem type={this.state.nexts[p + 3]} index={ p + 3 } />
-      <NextEditItem type={this.state.nexts[p + 4]} index={ p + 4 } />
+      {nexts}
       <a href="javascript:void(0)" className="arrow" onClick={this.onForward}>▼</a>
     </div>
   }
