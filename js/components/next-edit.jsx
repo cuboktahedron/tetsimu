@@ -38,7 +38,7 @@ var NextEditPanel = React.createClass({
 
     return <div className="next-panel">
       <h1>NEXT</h1>
-      <a href="javascript:void(0)" className="arrow" onClick={this.onBack}>▲</a>
+      <a href="javascript:void(0)" className={"arrow" + ((this.state.index < -5) ? " invisible" : "")} onClick={this.onBack}>▲</a>
       <NextEditItem type={this.state.nexts[p + 0]} index={ p + 0 } />
       <NextEditItem type={this.state.nexts[p + 1]} index={ p + 1 } />
       <NextEditItem type={this.state.nexts[p + 2]} index={ p + 2 } />

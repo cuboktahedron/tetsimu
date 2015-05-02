@@ -420,3 +420,7 @@ div.color-pallet a:hover {
   border: solid 2px white;
 }
 
+.invisible {
+  visibility: hidden;
+}
+
