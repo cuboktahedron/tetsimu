@@ -184,9 +184,9 @@ var OperationEditPanel = React.createClass({
             <a className="operation-btn" href="javascript:void(0)" onClick={this.onClear}>クリア</a>
 
             <div className="operation-sub-title">MODE</div>
-            <a className="operation-btn" href="javascript:void(0)" onClick={this.onChangeModeToSimu}>Simu(確定)</a>
+            <a className="operation-btn" href="javascript:void(0)" onClick={this.onChangeModeToSimu}>Simu</a>
             {(!!this.state.before) ?
-              <a className="operation-btn" href="javascript:void(0)" onClick={this.onCancel}>Simu(キャンセル)</a>
+              <a className="operation-btn" href="javascript:void(0)" onClick={this.onCancel}>戻る</a>
               : "" }
 
             <div className="operation-sub-title">TOOL</div>
