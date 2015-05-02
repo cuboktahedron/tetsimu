@@ -40,7 +40,7 @@
 
     setAndComplementTypes: function(types, prevTypes, generator) {
       var complementedTypes = []
-        , mergeTypes = prevTypes.concat(types)
+        , mergeTypes = prevTypes.reverse().concat(types)
         , removeTypes
         , type
         , i, len
