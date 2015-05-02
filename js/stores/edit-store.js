@@ -128,6 +128,7 @@
     clear: function(action) {
       var mode = C.Constants.Mode.Edit
         , params = {
+        force: true,
         field: '',
         hold: '',
         nexts: '',
