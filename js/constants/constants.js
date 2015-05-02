@@ -16,12 +16,14 @@
     },
 
     Edit: {
+      BackNext: 'edit-backNext',
       BeginSetCell: 'edit-beginSetCell',
       Cancel: 'edit-cancel',
       ChangeModeToSimu: 'edit-changeModeToSimu',
       CreateUrlParameters: 'edit-createUrlParameters',
       Clear: 'edit-clear',
       EndSetCell: 'edit-endSetCell',
+      ForwardNext: 'edit-forwardNext',
       Initialize: 'edit-initialize',
       SelectType: 'edit-selectType',
       SetCell: 'edit-setCell',

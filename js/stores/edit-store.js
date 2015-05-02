@@ -163,6 +163,16 @@
       this.emit(C.Constants.Event.Change);
     },
 
+    backNext: function(action) {
+      this._nextIndex--;
+      this.emit(C.Constants.Event.Change);
+    },
+
+    forwardNext: function(action) {
+      this._nextIndex++;
+      this.emit(C.Constants.Event.Change);
+    },
+
     setNext: function(action) {
       var selectedType = this._selectedType;
       if (selectedType === C.CellType.Ojama) {
@@ -215,6 +225,9 @@
       case C.Constants.Action.Edit.Initialize:
         EditStore.initialize(action);
         break;
+      case C.Constants.Action.Edit.BackNext:
+        EditStore.backNext(action);
+        break;
       case C.Constants.Action.Edit.BeginSetCell:
         EditStore.beginSetCell(action);
         break;
@@ -232,6 +245,9 @@
         break;
       case C.Constants.Action.Edit.EndSetCell:
         EditStore.endSetCell(action);
+        break;
+      case C.Constants.Action.Edit.ForwardNext:
+        EditStore.forwardNext(action);
         break;
       case C.Constants.Action.Edit.SelectType:
         EditStore.selectType(action);

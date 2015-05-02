@@ -158,6 +158,23 @@ body {
   width: 120px;
 }
 
+.next-panel a.arrow {
+  background-color: black;
+  border: solid 2px gray;
+  border-radius: 4px;
+  display: block;
+  color: white;
+  height: 20px;
+  line-height: 20px;
+  margin: 2px 12px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.next-panel a.arrow:hover {
+  background-color: red;
+}
+
 .next-panel h1 {
   background: #d03030;
   border: solid 2px gray;

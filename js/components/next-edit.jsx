@@ -19,8 +19,17 @@ var NextEditPanel = React.createClass({
 
   onChange: function() {
     this.setState({
+      index: C.EditStore.NextIndex(),
       nexts: C.EditStore.nexts().nexts
     });
+  },
+
+  onBack: function() {
+    C.NextEditAction.back();
+  },
+
+  onForward: function() {
+    C.NextEditAction.forward();
   },
 
   render: function() {
@@ -29,11 +38,13 @@ var NextEditPanel = React.createClass({
 
     return <div className="next-panel">
       <h1>NEXT</h1>
+      <a href="javascript:void(0)" className="arrow" onClick={this.onBack}>▲</a>
       <NextEditItem type={this.state.nexts[p + 0]} index={ p + 0 } />
       <NextEditItem type={this.state.nexts[p + 1]} index={ p + 1 } />
       <NextEditItem type={this.state.nexts[p + 2]} index={ p + 2 } />
       <NextEditItem type={this.state.nexts[p + 3]} index={ p + 3 } />
       <NextEditItem type={this.state.nexts[p + 4]} index={ p + 4 } />
+      <a href="javascript:void(0)" className="arrow" onClick={this.onForward}>▼</a>
     </div>
   }
 });
