@@ -177,8 +177,11 @@ var NextEditItem = React.createClass({
       throw new Error('invalid type(' + this.props.type + ')');
     }
 
-    return <div className="next" onClick={ function() { that.setNext(that.props.index); }} >
-             {structure}
+    return <div className="next-edit">
+             <div className="index">{this.props.index}</div>
+             <div className="next" onClick={ function() { that.setNext(that.props.index); }} >
+               {structure}
+             </div>
            </div>
   }
 });

@@ -184,6 +184,10 @@ body {
   text-align: center;
 }
 
+.next-panel {
+  float: left;
+}
+
 .next {
   background: #202020;
   border: solid 2px gray;
@@ -191,6 +195,22 @@ body {
   margin: 8px auto;
   padding: 16px;
   width: 72px;
+}
+
+.next-edit {
+  position: relative;
+}
+
+.next-edit .index{
+  background-color: white;
+  border 2px solid gray;
+  border-radius: 4px;
+  color: black;
+  left: 4px;
+  position: absolute;
+  text-align: center;
+  top: 4px;
+  min-width: 32px;
 }
 
 .next.fixed {
