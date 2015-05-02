@@ -14,7 +14,6 @@ var OperationReplayPanel = React.createClass({
 
   componentDidMount: function() {
     C.ControllerStore.addKeyListener(this.onKey);
-    C.ReplayStore.addChangeListener(this.onChange);
     C.ReplayStore.addSetUrlListener(this.onSetUrl);
     C.ConfigStore.addChangeListener(this.onConfigChange);
     C.ConfigStore.addCancelListener(this.onConfigCancel);
@@ -22,7 +21,6 @@ var OperationReplayPanel = React.createClass({
 
   componentWillUnmount: function() {
     C.ControllerStore.removeKeyListener(this.onKey);
-    C.ReplayStore.removeChangeListener(this.onChange);
     C.ReplayStore.removeSetUrlListener(this.onSetUrl);
     C.ConfigStore.removeChangeListener(this.onConfigChange);
     C.ConfigStore.removeCancelListener(this.onConfigCancel);
@@ -131,10 +129,6 @@ var OperationReplayPanel = React.createClass({
     }
 
     this.setState({ configuring: true });
-  },
-
-  onChange: function() {
-    this.setState({});
   },
 
   onConfigChange: function() {
