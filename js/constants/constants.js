@@ -26,6 +26,7 @@
       SelectType: 'edit-selectType',
       SetCell: 'edit-setCell',
       SetHold: 'edit-setHold',
+      SetNext: 'edit-setNext',
     },
 
     Mouse: {

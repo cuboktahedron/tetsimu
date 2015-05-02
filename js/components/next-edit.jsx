@@ -4,6 +4,7 @@
 var NextEditPanel = React.createClass({
   getInitialState: function () {
     return {
+      index: C.EditStore.NextIndex(),
       nexts: C.EditStore.nexts().nexts,
     };
   },
@@ -23,21 +24,28 @@ var NextEditPanel = React.createClass({
   },
 
   render: function() {
-    // TODO: indexは使用していないなら削除する
+    var that = this
+      , p = this.state.index;
+
     return <div className="next-panel">
-    <h1>NEXT</h1>
-    <Next type={this.state.nexts[0]} fixed={false} index="0" />
-    <Next type={this.state.nexts[1]} fixed={false} index="1"/>
-    <Next type={this.state.nexts[2]} fixed={false} index="2"/>
-    <Next type={this.state.nexts[3]} fixed={false} index="3"/>
-    <Next type={this.state.nexts[4]} fixed={false} index="4"/>
+      <h1>NEXT</h1>
+      <NextEditItem type={this.state.nexts[p + 0]} index={ p + 0 } />
+      <NextEditItem type={this.state.nexts[p + 1]} index={ p + 1 } />
+      <NextEditItem type={this.state.nexts[p + 2]} index={ p + 2 } />
+      <NextEditItem type={this.state.nexts[p + 3]} index={ p + 3 } />
+      <NextEditItem type={this.state.nexts[p + 4]} index={ p + 4 } />
     </div>
   }
 });
 
-var Next = React.createClass({
+var NextEditItem = React.createClass({
+  setNext: function(index) {
+    C.NextEditAction.setNext(index);
+  },
+
   render: function() {
-    var structure;
+    var that = this
+      , structure;
 
     switch (this.props.type) {
     case undefined:
@@ -158,7 +166,7 @@ var Next = React.createClass({
       throw new Error('invalid type(' + this.props.type + ')');
     }
 
-    return <div className={"next" + (this.props.fixed ? " fixed" : "")}>
+    return <div className="next" onClick={ function() { that.setNext(that.props.index); }} >
              {structure}
            </div>
   }

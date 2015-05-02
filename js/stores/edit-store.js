@@ -4,6 +4,7 @@
   var EditStore = $.extend({
     _field: new C.Field(),
     _hold: new C.Hold(),
+    _nextIndex: 0,
     _nexts: new C.Nexts(), _prevs: new C.Nexts(),
     _nextGenerator: new C.NextGenerator(),
     _selectedType: C.CellType.I,
@@ -18,6 +19,7 @@
 
     _init: function(context) {
       this._field = new C.Field(),
+      this._nextIndex = 0,
       this._hold = new C.Hold(),
       this._nexts = new C.Nexts(),
       this._prevs = new C.Nexts(),
@@ -43,6 +45,10 @@
         nexts: this._nexts.types(),
         index: 0
       }
+    },
+
+    NextIndex: function() {
+      return this._nextIndex;
     },
 
     canHold: function() {
@@ -157,6 +163,21 @@
       this.emit(C.Constants.Event.Change);
     },
 
+    setNext: function(action) {
+      var selectedType = this._selectedType;
+      if (selectedType === C.CellType.Ojama) {
+        selectedType = C.CellType.None;
+      }
+
+      if (action.index < 0) {
+
+      } else {
+        this._nexts.typeAt(action.index, selectedType);
+      }
+
+      this.emit(C.Constants.Event.Change);
+    },
+
     selectType: function(action) {
       this._selectedType = action.type;
       this.emit(C.Constants.Event.Change);
@@ -220,6 +241,9 @@
         break;
       case C.Constants.Action.Edit.SetHold:
         EditStore.setHold(action);
+        break;
+      case C.Constants.Action.Edit.SetNext:
+        EditStore.setNext(action);
         break;
 
       default:
