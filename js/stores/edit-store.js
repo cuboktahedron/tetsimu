@@ -3,6 +3,7 @@
 
   var EditStore = $.extend({
     _initialized: false,
+    _context: null,
     _field: new C.Field(),
     _hold: new C.Hold(),
     _nextIndex: 0,
@@ -13,12 +14,12 @@
 
     initialize: function(action, force) {
       if (this._initialized && !action.context.force) {
+        this._context.before = action.context.before;
         return;
       }
 
       this._initialized = true;
-
-      var context = action.context
+      this._context = action.context
 
       this._init(action.context);
       this.emit(C.Constants.Event.Change);
@@ -36,6 +37,10 @@
       this._hold.deserialize(context.hold);
       this._nexts.deserialize(context.nexts);
       this._prevs.deserialize(context.prevs);
+    },
+
+    context: function() {
+      return this._context;
     },
 
     fieldTypes: function() {
@@ -101,7 +106,9 @@
 
     cancel: function(action) {
       var mode = C.Constants.Mode.Simu
-      this.emit(C.Constants.Event.ChangeMode, mode, {});
+      this.emit(C.Constants.Event.ChangeMode, mode, {
+        before: C.Constants.Mode.Edit
+      });
     },
 
     changeModeToSimu: function(action) {

@@ -3,6 +3,7 @@
 
   var SimuStore = $.extend({
     _initialized: false,
+    _context: null,
     _current: null,
     _ghost: null,
     _field: new C.Field(),
@@ -17,13 +18,13 @@
 
     initialize: function(action, force) {
       if (this._initialized && !action.context.force) {
+        this._context.before = action.context.before;
         return;
       }
 
       this._initialized = true;
-
-      var context = action.context
-      this._seed = context.seed == null ? C.Random.nextInt(1000000) : context.seed;
+      this._context = action.context
+      this._seed = this._context.seed == null ? C.Random.nextInt(1000000) : this._context.seed;
 
       this._init(action.context);
       this.emit(C.Constants.Event.Change);
@@ -58,6 +59,10 @@
       this._forwardCurrent();
 
       this._histories.push(this._current, this._field, this._nexts, this._hold, this._description);
+    },
+
+    context: function() {
+      return this._context;
     },
 
     retry: function(action) {
@@ -345,7 +350,9 @@
 
     backToEditMode: function(action) {
       var mode = C.Constants.Mode.Edit
-      this.emit(C.Constants.Event.ChangeMode, mode, {});
+      this.emit(C.Constants.Event.ChangeMode, mode, {
+        before: C.Constants.Mode.Simu
+      });
     },
 
     changeModeToReplay: function(action) {

@@ -4,8 +4,9 @@
 var OperationEditPanel = React.createClass({
   getInitialState: function() {
     return {
-      before: this.props.context.before,
+      before: C.EditStore.context().before,
       configuring: false,
+      context: C.EditStore.context(),
       keyConfig: C.ConfigStore.keyConfig(C.Constants.Mode.Edit),
       selectedType: C.EditStore.selectedType(),
       urlParameters: C.EditStore.urlParameters()

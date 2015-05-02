@@ -4,7 +4,8 @@
 var OperationSimuPanel = React.createClass({
   getInitialState: function() {
     return {
-      before: this.props.context.before,
+      before: C.SimuStore.context().before,
+      context: C.SimuStore.context(),
       configuring: false,
       keyConfig: C.ConfigStore.keyConfig(C.Constants.Mode.Simu),
       seed: C.SimuStore.seed(),
