@@ -3,6 +3,7 @@
 
   var ReplayStore = $.extend({
     _current: null,
+    _context: null,
     _ghost: null,
     _field: new C.Field(),
     _hold: new C.Hold(),
@@ -14,7 +15,7 @@
     _urlParameters: '',
 
     initialize: function(action) {
-      var context = action.context
+      this._context = action.context
 
       this._current = null;
       this._ghost = null;
@@ -27,7 +28,7 @@
       this.__currentStep = null;
       this._urlParameters = '';
 
-      this._init(action.context);
+      this._init(this._context);
       this.emit(C.Constants.Event.Change);
     },
 
@@ -199,11 +200,11 @@
     },
 
     backToHead: function(action) {
-      this.initialize(action);
+      this.initialize({ context: this._context });
     },
 
     createUrlParameters: function(action) {
-      var context = action.context
+      var context = this._context
         , parameters = []
         , f = context.field
         , ns = context.nexts
@@ -235,7 +236,7 @@
 
     changeModeToSimu: function(action) {
       var mode = C.Constants.Mode.Simu
-        , context = action.context
+        , context = this._context;
 
       // リプレイモード→プレイングモード切替時は、前回切替前の続きから再開
       // させるが、リプレイモードから開始している場合もあるので、その場合は

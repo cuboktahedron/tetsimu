@@ -14,24 +14,21 @@
       });
     },
 
-    backToHead: function(context) {
+    backToHead: function() {
       C.AppDispatcher.handleViewAction({
         actionType: C.Constants.Action.Replay.BackToHead,
-        context: context
       });
     },
 
-    createUrlParameters: function(context) {
+    createUrlParameters: function() {
       C.AppDispatcher.handleViewAction({
         actionType: C.Constants.Action.Replay.CreateUrlParameters,
-        context: context
       });
     },
 
-    changeModeToSimu: function(context) {
+    changeModeToSimu: function() {
       C.AppDispatcher.handleViewAction({
         actionType: C.Constants.Action.Replay.ChangeModeToSimu,
-        context: context
       });
     }
   };

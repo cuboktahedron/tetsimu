@@ -77,7 +77,7 @@ var OperationReplayPanel = React.createClass({
     if (this.state.configuring) {
       return;
     }
-    C.OperationReplayPanelAction.backToHead(this.props.context);
+    C.OperationReplayPanelAction.backToHead();
   },
 
   onSetUrl: function() {
@@ -100,7 +100,7 @@ var OperationReplayPanel = React.createClass({
     if (this.state.configuring) {
       return;
     }
-    C.OperationReplayPanelAction.createUrlParameters(this.props.context);
+    C.OperationReplayPanelAction.createUrlParameters();
   },
 
   _changeModeToSimu: function(state) {
@@ -113,7 +113,7 @@ var OperationReplayPanel = React.createClass({
     if (this.state.configuring) {
       return;
     }
-    C.OperationReplayPanelAction.changeModeToSimu(this.props.context);
+    C.OperationReplayPanelAction.changeModeToSimu();
   },
 
   _configure: function(state) {
