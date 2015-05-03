@@ -27,6 +27,10 @@ var NextEditPanel = React.createClass({
   },
 
   onBack: function() {
+    if (this.state.index < -5) {
+      return;
+    }
+
     C.NextEditAction.back();
   },
 
@@ -72,12 +76,19 @@ var NextEditPanel = React.createClass({
       }
     }
 
-    return <div className="next-panel">
-      <h1>NEXT</h1>
-      <a href="javascript:void(0)" className={"arrow" + ((this.state.index < -5) ? " invisible" : "")} onClick={this.onBack}>▲</a>
-      {nexts}
-      <a href="javascript:void(0)" className="arrow" onClick={this.onForward}>▼</a>
-    </div>
+    return <div className="next-panel" onWheel={
+      function(e) {
+        if (e.deltaY < 0) {
+          that.onBack();
+        } else {
+          that.onForward();
+        }
+      }}>
+        <h1>NEXT</h1>
+        <a href="javascript:void(0)" className={"arrow" + ((this.state.index < -5) ? " invisible" : "")} onClick={this.onBack}>▲</a>
+          {nexts}
+        <a href="javascript:void(0)" className="arrow" onClick={this.onForward}>▼</a>
+      </div>
   }
 });
 
