@@ -121,8 +121,8 @@ var ConfigPanel = React.createClass({
         switch (token) {
           case 'shift': keyConfigItem.shift = true; break;
           case 'ctrl': keyConfigItem.ctrl = true; break;
-          case 'cmd': keyConfigItem.cmd = true;
-          default: keyConfigItem.keyName = token;
+          case 'cmd': keyConfigItem.cmd = true; break;
+          default: keyConfigItem.keyName = token; break;
         }
       }
 
