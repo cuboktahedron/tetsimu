@@ -3,6 +3,7 @@
  */
 var OperationReplayPanel = React.createClass({
   getInitialState: function() { return {
+      before: this.props.context.before,
       configuring: false,
       keyConfig: C.ConfigStore.keyConfig(C.Constants.Mode.Replay),
       urlParameters: C.ReplayStore.urlParameters()
@@ -159,7 +160,9 @@ var OperationReplayPanel = React.createClass({
             <a className="operation-btn" href="javascript:void(0)" onClick={this.onBackToHead}>□</a>
 
             <div className="operation-sub-title">MODE</div>
-            <a className="operation-btn" href="javascript:void(0)" onClick={this.onChangeModeToSimu}>Simu</a>
+            <a className="operation-btn" href="javascript:void(0)" onClick={this.onChangeModeToSimu}>
+              {(!!this.state.before) ? '戻る' : 'Simu'}
+            </a>
 
             <div className="operation-sub-title">TOOL</div>
             <a className="operation-btn" href="javascript:void(0)" onClick={this.onCreateUrlParameters}>URL出力</a>

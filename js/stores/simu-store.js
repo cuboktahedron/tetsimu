@@ -363,6 +363,7 @@
       allNexts.types(allNextsTypes);
 
       var params = {
+        before: C.Constants.Mode.Simu,
         field: this._context.field,
         hold: this._context.hold,
         nexts: allNexts.serialize(),
