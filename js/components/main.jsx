@@ -81,9 +81,9 @@ var MainPanel = React.createClass({
       if (configJson != null) {
         config = JSON.parse(configJson);
         config.version = C.Constants.ConfigVersion;
-        config.key.simu = $.extend({}, defaultConfig.key.simu, config.key.simu);
-        config.key.replay = $.extend({}, defaultConfig.key.replay, config.key.replay);
-        config.key.edit = $.extend({}, defaultConfig.key.edit, config.key.edit);
+        config.key.simu = this._mergeKeys(defaultConfig.key.simu, config.key.simu);
+        config.key.replay = this._mergeKeys(defaultConfig.key.replay, config.key.replay);
+        config.key.edit = this._mergeKeys(defaultConfig.key.edit, config.key.edit);
       }
     } catch (e) {
       console.error(e);
@@ -95,6 +95,20 @@ var MainPanel = React.createClass({
     localStorage.setItem('config', JSON.stringify(config));
 
     C.MainPanelAction.storeConfig(config);
+  },
+
+  _mergeKeys: function(defaultConfig, config) {
+    var p;
+
+    // 最新バージョンで削除されたり名称が変更になっているアクションが
+    // 残らないように削除する
+    for (p in ($.extend({}, config))) {
+      if (!(p in defaultConfig)) {
+        delete config[p];
+      }
+    }
+
+    return $.extend({}, defaultConfig, config);
   },
 
   componentWillUnmount: function() {
