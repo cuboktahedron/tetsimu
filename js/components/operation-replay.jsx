@@ -116,6 +116,19 @@ var OperationReplayPanel = React.createClass({
     C.OperationReplayPanelAction.changeModeToSimu();
   },
 
+  _cancel: function(state) {
+    if (state.down) {
+      this.onCancel();
+    }
+  },
+
+  onCancel: function() {
+    if (this.state.configuring || !this.state.before) {
+      return;
+    }
+    this.onChangeModeToSimu();
+  },
+
   _configure: function(state) {
     if (state.down) {
       this.setState({

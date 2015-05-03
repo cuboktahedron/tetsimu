@@ -5,7 +5,8 @@
     _config: null,
     _modeValues: [
       'simu',
-      'replay'
+      'replay',
+      'edit',
     ],
 
     storeConfig: function(action) {
@@ -45,7 +46,25 @@
         version: C.Constants.ConfigVersion,
 
         key: {
+          edit: {
+            'cancel': 'esc',
+            'changeModeToSimu': 'num_1',
+            'clear': '',
+            'configure': '?',
+            'createUrlParameters': 'u',
+            'selectTypeI': '1',
+            'selectTypeJ': '2',
+            'selectTypeL': '3',
+            'selectTypeO': '4',
+            'selectTypeS': '5',
+            'selectTypeT': '6',
+            'selectTypeZ': '7',
+            'selectTypeOjama': '8',
+            'selectTypeNone': '9',
+          },
+
           simu: {
+            'backToEditMode': 'esc',
             'hardDrop': 'up',
             'leftMove': 'left',
             'softDrop': 'down',
@@ -57,19 +76,22 @@
             'superRetry': 'shift + r',
             'back': 'b',
             'forward': 'shift + b',
+            'clear': '',
             'createUrlParameters': 'u',
             'changeModeToReplay': 'num_1',
+            'changeModeToEdit': 'num_2',
             'configure': '?'
           },
 
           replay: {
+            'cancel': 'esc',
             'forward': 'right',
             'back': 'left',
             'backToHead': 'r',
             'createUrlParameters': 'u',
             'changeModeToSimu': 'num_1',
             'configure': '?'
-          }
+          },
         }
       };
     },

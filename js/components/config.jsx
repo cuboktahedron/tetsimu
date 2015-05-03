@@ -35,7 +35,10 @@ var ConfigPanel = React.createClass({
       { actionName: '１手戻る', action: 'back'},
       { actionName: 'リトライ', action: 'retry'},
       { actionName: 'スーパーリトライ', action: 'superRetry'},
+      { actionName: 'クリア', action: 'clear'},
       { actionName: 'モード切替(Replay)', action: 'changeModeToReplay'},
+      { actionName: 'モード切替(Edit)', action: 'changeModeToEdit'},
+      { actionName: '戻る', action: 'backToEditMode'},
       { actionName: 'URL出力', action: 'createUrlParameters'},
       { actionName: '設定', action: 'configure'}
     ], this.state.config.key.simu);
@@ -45,9 +48,27 @@ var ConfigPanel = React.createClass({
       { actionName: '１手戻る', action: 'back'},
       { actionName: '最初に戻る', action: 'backToHead'},
       { actionName: 'モード切替(Simu)', action: 'changeModeToSimu'},
+      { actionName: '戻る', action: 'cancel'},
       { actionName: 'URL出力', action: 'createUrlParameters'},
       { actionName: '設定', action: 'configure'}
     ], this.state.config.key.replay);
+
+    var editKeyConfigItems = this._makeKeyConfigItems([
+      { actionName: 'Iを選択', action: 'selectTypeI'},
+      { actionName: 'Jを選択', action: 'selectTypeJ'},
+      { actionName: 'Lを選択', action: 'selectTypeL'},
+      { actionName: 'Oを選択', action: 'selectTypeO'},
+      { actionName: 'Sを選択', action: 'selectTypeS'},
+      { actionName: 'Tを選択', action: 'selectTypeT'},
+      { actionName: 'Zを選択', action: 'selectTypeZ'},
+      { actionName: '白を選択', action: 'selectTypeOjama'},
+      { actionName: '黒を選択', action: 'selectTypeNone'},
+      { actionName: 'クリア', action: 'clear'},
+      { actionName: 'Simu', action: 'changeModeToSimu'},
+      { actionName: '戻る', action: 'cancel'},
+      { actionName: 'URL出力', action: 'createUrlParameters'},
+      { actionName: '設定', action: 'configure'}
+    ], this.state.config.key.edit);
 
     return <div className="config-panel">
         <div className="inner-config-panel">
@@ -55,6 +76,9 @@ var ConfigPanel = React.createClass({
           <hr style={{clear:'both'}}/>
 
           <ModeConfig prefixId="replay" config={this.state.config.replay} title="Replay" configItems={replayKeyConfigItems} ref="replay" />
+          <hr style={{clear:'both'}}/>
+
+          <ModeConfig prefixId="edit" config={this.state.config.edit} title="Edit" configItems={editKeyConfigItems} ref="edit" />
           <hr style={{clear:'both'}}/>
 
           <div className="config-button-area">
@@ -141,9 +165,11 @@ var ConfigPanel = React.createClass({
     var newConfig = {}
       , simu = this.refs.simu.buildConfig()
       , replay  = this.refs.replay.buildConfig()
+      , edit  = this.refs.edit.buildConfig()
 
     this._validateConfig("Simu", simu.keysBeforeShifted, validationState);
     this._validateConfig("Replay", replay.keysBeforeShifted, validationState);
+    this._validateConfig("Edit", edit.keysBeforeShifted, validationState);
 
     if (validationState.errorMessages.length > 0) {
       return null;
@@ -153,7 +179,8 @@ var ConfigPanel = React.createClass({
       version: C.Constants.ConfigVersion,
       key: {
         simu: simu.keys,
-        replay: replay.keys
+        replay: replay.keys,
+        edit: edit.keys,
       }
     };
 
@@ -257,7 +284,8 @@ var KeyConfigItem = React.createClass({
     { label: ';'    , value: ';', shift: ':' },
     { label: ','    , value: ',', shift: '<' },
     { label: '.'    , value: '.', shift: '>' },
-    { label: '/'    , value: '/', shift: '?' }
+    { label: '/'    , value: '/', shift: '?' },
+    { label: 'Esc'  , value: 'esc' },
   ],
 
   render: function() {

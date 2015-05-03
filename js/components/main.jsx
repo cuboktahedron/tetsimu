@@ -83,6 +83,7 @@ var MainPanel = React.createClass({
         config.version = C.Constants.ConfigVersion;
         config.key.simu = $.extend({}, defaultConfig.key.simu, config.key.simu);
         config.key.replay = $.extend({}, defaultConfig.key.replay, config.key.replay);
+        config.key.edit = $.extend({}, defaultConfig.key.edit, config.key.edit);
       }
     } catch (e) {
       console.error(e);

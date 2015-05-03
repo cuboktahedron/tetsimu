@@ -270,8 +270,14 @@ var OperationSimuPanel = React.createClass({
     C.OperationSimuPanelAction.changeModeToReplay();
   },
 
+  _backToEditMode: function(state) {
+    if (state.down) {
+      this.onBackToEditMode();
+    }
+  },
+
   onBackToEditMode: function() {
-    if (this.state.configuring) {
+    if (this.state.configuring || !this.state.before) {
       return;
     }
     C.OperationSimuPanelAction.backToEditMode();

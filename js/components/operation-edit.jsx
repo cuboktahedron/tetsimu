@@ -40,8 +40,6 @@ var OperationEditPanel = React.createClass({
       return;
     }
 
-    // TODO: キーコンフィグ出きるようにする
-    return;
     var action = this.state.keyConfig[state.keyName];
     if (action == null) {
       return;
@@ -143,8 +141,14 @@ var OperationEditPanel = React.createClass({
     C.OperationEditPanelAction.changeModeToSimu();
   },
 
+  _cancel: function(state) {
+    if (state.down) {
+      this.onCancel();
+    }
+  },
+
   onCancel: function() {
-    if (this.state.configuring) {
+    if (this.state.configuring || !this.state.before) {
       return;
     }
     C.OperationEditPanelAction.cancel();
@@ -164,10 +168,50 @@ var OperationEditPanel = React.createClass({
   },
 
   onSelectType: function(type) {
-    if (this.state.configuring && type != this.state.selectedType) {
+    if (this.state.configuring || type === this.state.selectedType) {
       return;
     }
     C.OperationEditPanelAction.selectType(type);
+  },
+
+  _selectTypeI: function() {
+    this.onSelectType(C.CellType.I);
+  },
+
+  _selectTypeJ: function() {
+    this.onSelectType(C.CellType.J);
+  },
+
+  _selectTypeL: function() {
+    this.onSelectType(C.CellType.L);
+  },
+
+  _selectTypeO: function() {
+    this.onSelectType(C.CellType.O);
+  },
+
+  _selectTypeS: function() {
+    this.onSelectType(C.CellType.S);
+  },
+
+  _selectTypeI: function() {
+    this.onSelectType(C.CellType.I);
+  },
+
+  _selectTypeT: function() {
+    this.onSelectType(C.CellType.T);
+  },
+
+  _selectTypeZ: function() {
+    this.onSelectType(C.CellType.Z);
+  },
+
+  _selectTypeOjama: function() {
+    this.onSelectType(C.CellType.Ojama);
+  },
+
+  _selectTypeNone: function() {
+    this.onSelectType(C.CellType.None);
   },
 
   render: function() {
