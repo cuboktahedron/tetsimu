@@ -168,7 +168,7 @@ var ConfigPanel = React.createClass({
 
     for (p in config) {
       key = config[p];
-      if ((key in appearedKey) && !(key in duplicatekeys)) {
+      if ((key !== '') && (key in appearedKey) && !(key in duplicatekeys)) {
         duplicatekeys[key] = true;
         errorMessages.push(key + 'が重複しています。');
       }
@@ -202,6 +202,7 @@ var ConfigPanel = React.createClass({
 
 var KeyConfigItem = React.createClass({
   _KeyDefinitions: [
+    { label: '設定なし', value: '' },
     { label: 'space', value: 'space' },
     { label: 'left' , value: 'left' },
     { label: 'up'   , value: 'up' },
@@ -312,6 +313,15 @@ var KeyConfigItem = React.createClass({
       , keyWithShift = $(keyId).find('option:selected').attr('data-shift')
       , key = []
       , keyBeforeShifted = []
+
+    if (keyName === '') {
+      // 未設定
+      return {
+        actionName: this.props.value.action,
+        key: '',
+        keyBeforeShifted: ''
+      };
+    }
 
     if (ctrl) {
       key.push('ctrl');
