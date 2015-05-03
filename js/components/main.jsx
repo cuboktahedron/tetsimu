@@ -24,6 +24,17 @@ var MainPanel = React.createClass({
   },
 
   componentDidMount: function() {
+    this._initController();
+    this._initMouse();
+
+    this._restoreConfig();
+
+    C.SimuStore.addChangeModeListener(this.onChangeMode);
+    C.ReplayStore.addChangeModeListener(this.onChangeMode);
+    C.EditStore.addChangeModeListener(this.onChangeMode);
+  },
+
+  _initController: function() {
     var keys = C.Constants.KeyNames
       , i, len;
 
@@ -47,8 +58,9 @@ var MainPanel = React.createClass({
     }
 
     C.keyListener.register_many(this._KeyCombos);
-    this._restoreConfig();
+  },
 
+  _initMouse: function() {
     $(document).mousedown(function(e) {
       C.MouseAction.down(e);
     });
@@ -56,10 +68,6 @@ var MainPanel = React.createClass({
     $(document).mouseup(function(e) {
       C.MouseAction.up(e);
     });
-
-    C.SimuStore.addChangeModeListener(this.onChangeMode);
-    C.ReplayStore.addChangeModeListener(this.onChangeMode);
-    C.EditStore.addChangeModeListener(this.onChangeMode);
   },
 
   _restoreConfig: function() {
