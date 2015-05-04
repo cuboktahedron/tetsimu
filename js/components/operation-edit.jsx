@@ -174,40 +174,58 @@ var OperationEditPanel = React.createClass({
     C.OperationEditPanelAction.selectType(type);
   },
 
-  _selectTypeI: function() {
-    this.onSelectType(C.CellType.I);
+  _selectTypeI: function(state) {
+    if (state.down) {
+      this.onSelectType(C.CellType.I);
+    }
   },
 
-  _selectTypeJ: function() {
-    this.onSelectType(C.CellType.J);
+  _selectTypeJ: function(state) {
+    if (state.down) {
+      this.onSelectType(C.CellType.J);
+    }
   },
 
-  _selectTypeL: function() {
-    this.onSelectType(C.CellType.L);
+  _selectTypeL: function(state) {
+    if (state.down) {
+      this.onSelectType(C.CellType.L);
+    }
   },
 
-  _selectTypeO: function() {
-    this.onSelectType(C.CellType.O);
+  _selectTypeO: function(state) {
+    if (state.down) {
+      this.onSelectType(C.CellType.O);
+    }
   },
 
-  _selectTypeS: function() {
-    this.onSelectType(C.CellType.S);
+  _selectTypeS: function(state) {
+    if (state.down) {
+      this.onSelectType(C.CellType.S);
+    }
   },
 
-  _selectTypeT: function() {
-    this.onSelectType(C.CellType.T);
+  _selectTypeT: function(state) {
+    if (state.down) {
+      this.onSelectType(C.CellType.T);
+    }
   },
 
-  _selectTypeZ: function() {
-    this.onSelectType(C.CellType.Z);
+  _selectTypeZ: function(state) {
+    if (state.down) {
+      this.onSelectType(C.CellType.Z);
+    }
   },
 
-  _selectTypeOjama: function() {
-    this.onSelectType(C.CellType.Ojama);
+  _selectTypeOjama: function(state) {
+    if (state.down) {
+      this.onSelectType(C.CellType.Ojama);
+    }
   },
 
-  _selectTypeNone: function() {
-    this.onSelectType(C.CellType.None);
+  _selectTypeNone: function(state) {
+    if (state.down) {
+      this.onSelectType(C.CellType.None);
+    }
   },
 
   _fieldUp: function(state) {
