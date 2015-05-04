@@ -145,6 +145,15 @@
       }
     },
 
+    insert: function(index, v) {
+      this._types.splice(index, 0, C.CellType.None);
+      this.typeAt(index, v);
+    },
+
+    delete: function(index) {
+      this._types.splice(index, 1);
+    },
+
     serialize: function() {
       return C.NextsSerializer.serialize(this._types);
     },

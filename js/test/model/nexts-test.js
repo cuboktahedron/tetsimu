@@ -1,6 +1,5 @@
 (function() {
-  var nexts;
-
+  var nexts; 
   module('NextsTest', {
     setup: function() {
       nexts = new C.Nexts();
@@ -20,8 +19,7 @@
   test('セットした順にツモが取得できること', function() {
     nexts.types([
       C.CellType.J,
-      C.CellType.L,
-      C.CellType.Z
+      C.CellType.L, C.CellType.Z
     ]);
 
     deepEqual(nexts.next(), C.CellType.J);
@@ -212,4 +210,60 @@
     nexts.typeAt(3, C.CellType.None);
     deepEqual(nexts.types(), [ C.CellType.I ]);
   });
+
+  test('指定した位置にツモを挿入できること', function() {
+    nexts.types([
+      C.CellType.I,
+      C.CellType.J,
+      C.CellType.L,
+      C.CellType.O,
+    ]);
+
+    nexts.insert(3, C.CellType.Z);
+    deepEqual(nexts.types(), [
+      C.CellType.I,
+      C.CellType.J,
+      C.CellType.L,
+      C.CellType.Z,
+      C.CellType.O,
+    ]);
+  });
+
+  test('未設定箇所にツモを挿入できること', function() {
+    nexts.insert(3, C.CellType.Z);
+    deepEqual(nexts.types(), [
+      C.CellType.None,
+      C.CellType.None,
+      C.CellType.None,
+      C.CellType.Z,
+    ]);
+  });
+
+  test('指定した位置のツモを削除できること', function() {
+    nexts.types([
+      C.CellType.I,
+      C.CellType.J,
+      C.CellType.L,
+      C.CellType.O,
+    ]);
+
+    nexts.delete(2);
+    deepEqual(nexts.types(), [
+      C.CellType.I,
+      C.CellType.J,
+      C.CellType.O,
+    ]);
+  });
+
+  test('未設定箇所のツモを削除してもエラーとならないこと', function() {
+    nexts.types([
+      C.CellType.I,
+    ]);
+
+    nexts.delete(3);
+    deepEqual(nexts.types(), [
+      C.CellType.I,
+    ]);
+  });
+
 })();
