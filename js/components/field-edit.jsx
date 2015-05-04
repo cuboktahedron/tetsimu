@@ -83,11 +83,19 @@ var FieldEditPanel = React.createClass({
     C.FieldEditAction.buildDown();
   },
 
+  onScroll: function(deltaY) {
+    if (deltaY < 0) {
+      this.onBuildUp();
+    } else {
+      this.onBuildDown();
+    }
+  },
+
   render: function() {
     var that = this;
 
     return <div className="field-panel">
-        <table className="field">
+        <table className="field" onWheel={ function(e) { that.onScroll(e.deltaY); }}>
           {this.state.types.map(function(row, y) {
             return <tr className="field-line" key={y}>
                 {row.map(function(type, x) {
