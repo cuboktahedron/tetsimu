@@ -251,7 +251,7 @@ var NextEditItem = React.createClass({
                <div className="prev-index">{this.props.index}</div>
                :
                <div className="index" onClick={this.onMenuExpand} onMouseLeave={this.onMenuContraction}>
-                 {this.props.index}
+                 {this.props.index + 1}
                  <div className={'menu' + (that.state.menuExpanded ? '' : ' none')}>
                    <div className="menuItem" onClick={ function() { that.onInsert(that.props.index); }}>＋</div>
                    <div className="menuItem" onClick={ function() { that.onDelete(that.props.index); }}>－</div>
