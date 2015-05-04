@@ -128,7 +128,8 @@ body {
 }
 
 .hold.cannot-hold {
-  background: #0000ff;
+  background: #600000;
+  border: solid 2px red;
 }
 
 .hold-line {
