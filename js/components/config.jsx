@@ -64,7 +64,7 @@ var ConfigPanel = React.createClass({
       { actionName: '白を選択', action: 'selectTypeOjama'},
       { actionName: '黒を選択', action: 'selectTypeNone'},
       { actionName: 'クリア', action: 'clear'},
-      { actionName: 'Simu', action: 'changeModeToSimu'},
+      { actionName: 'モード切り替え(Simu)', action: 'changeModeToSimu'},
       { actionName: '戻る', action: 'cancel'},
       { actionName: 'URL出力', action: 'createUrlParameters'},
       { actionName: '設定', action: 'configure'}
