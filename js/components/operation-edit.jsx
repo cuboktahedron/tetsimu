@@ -194,10 +194,6 @@ var OperationEditPanel = React.createClass({
     this.onSelectType(C.CellType.S);
   },
 
-  _selectTypeI: function() {
-    this.onSelectType(C.CellType.I);
-  },
-
   _selectTypeT: function() {
     this.onSelectType(C.CellType.T);
   },
