@@ -247,13 +247,17 @@ var NextEditItem = React.createClass({
     }
 
     return <div className="next-edit">
-             <div className="index" onClick={this.onMenuExpand} onMouseLeave={this.onMenuContraction}>
-               {this.props.index}
-               <div className={'menu' + (that.state.menuExpanded ? '' : ' none')}>
-                 <div className="menuItem" onClick={ function() { that.onInsert(that.props.index); }}>＋</div>
-                 <div className="menuItem" onClick={ function() { that.onDelete(that.props.index); }}>－</div>
+             {this.props.isPrev ?
+               <div className="prev-index">{this.props.index}</div>
+               :
+               <div className="index" onClick={this.onMenuExpand} onMouseLeave={this.onMenuContraction}>
+                 {this.props.index}
+                 <div className={'menu' + (that.state.menuExpanded ? '' : ' none')}>
+                   <div className="menuItem" onClick={ function() { that.onInsert(that.props.index); }}>＋</div>
+                   <div className="menuItem" onClick={ function() { that.onDelete(that.props.index); }}>－</div>
+                 </div>
                </div>
-             </div>
+             }
              <div className="next" onClick={ function() { that.setNext(that.props.index); }} >
                {structure}
              </div>

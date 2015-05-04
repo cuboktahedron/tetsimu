@@ -202,7 +202,8 @@ body {
   position: relative;
 }
 
-.next-edit div.index{
+.next-edit div.prev-index,
+.next-edit div.index {
   background-color: white;
   border 2px solid gray;
   border-radius: 4px;
