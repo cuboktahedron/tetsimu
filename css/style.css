@@ -215,7 +215,8 @@ body {
 }
 
 .next.fixed {
-  background: #900000;
+  background: #600000;
+  border: 2px solid red;
 }
 
 .next-line {
