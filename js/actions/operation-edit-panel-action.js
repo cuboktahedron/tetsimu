@@ -28,6 +28,18 @@
       });
     },
 
+    fieldUp: function() {
+      C.AppDispatcher.handleViewAction({
+        actionType: C.Constants.Action.Edit.BuildUpField,
+      });
+    },
+
+    fieldDown: function() {
+      C.AppDispatcher.handleViewAction({
+        actionType: C.Constants.Action.Edit.BuildDownField,
+      });
+    },
+
     selectType: function(type) {
       C.AppDispatcher.handleViewAction({
         actionType: C.Constants.Action.Edit.SelectType,

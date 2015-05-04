@@ -214,6 +214,34 @@ var OperationEditPanel = React.createClass({
     this.onSelectType(C.CellType.None);
   },
 
+  _fieldUp: function(state) {
+    if (state.intervalDown) {
+      this.onFieldUp()
+    }
+  },
+
+  onFieldUp: function() {
+    if (this.state.configuring) {
+      return;
+    }
+
+    C.OperationEditPanelAction.fieldUp();
+  },
+
+  _fieldDown: function(state) {
+    if (state.intervalDown) {
+      this.onFieldDown()
+    }
+  },
+
+  onFieldDown: function() {
+    if (this.state.configuring) {
+      return;
+    }
+
+    C.OperationEditPanelAction.fieldDown();
+  },
+
   render: function() {
     var url = ''
       , st = this.state.selectedType;
