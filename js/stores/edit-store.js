@@ -79,8 +79,8 @@
       var parameters = []
         , f = this._field.serialize()
         , h = this._hold.serialize()
-        , ns = C.NextsSerializer.serialize(this._nexts.types())
-        , ps = C.NextsSerializer.serialize(this._prevs.types());
+        , ns = this._nexts.serialize()
+        , ps = this._prevs.serialize();
 
       if (!!f) {
         parameters.push('f=' + f);

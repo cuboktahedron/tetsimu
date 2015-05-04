@@ -146,7 +146,7 @@
     },
 
     serialize: function() {
-      return C.NextsSerializer.serialize(this.nextTypes());
+      return C.NextsSerializer.serialize(this._types);
     },
 
     deserialize: function(param) {

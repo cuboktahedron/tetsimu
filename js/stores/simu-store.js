@@ -297,18 +297,13 @@
     },
 
     createUrlParameters: function(action) {
-      var parameters = []
-        , f = this._field.serialize()
-        , h = this._hold.serialize()
-        , ns
-        , seed
-        , nexts = new C.Nexts()
-        , nextTypes = this.nexts();
-
-      nextTypes.unshift(this._current.type());
-      nexts.types(nextTypes);
-      ns = nexts.serialize();
-      seed = this._seed;
+      var context = this._context
+        , parameters = []
+        , f = context.field
+        , ns = this._nexts.serialize()
+        , ss = this._steps.serialize()
+        , h = context.hold
+        , seed = this._seed;
 
       if (!!f) {
         parameters.push('f=' + f);
@@ -318,10 +313,15 @@
         parameters.push('ns=' + ns);
       }
 
+      if (!!ss) {
+        parameters.push('ss=' + ss);
+      }
+
       if (!!h) {
         parameters.push('h=' + h);
       }
 
+      parameters.push('m=' + C.Constants.Mode.Replay);
       parameters.push('s=' + seed);
       parameters.push('v=' + C.Constants.Version);
 

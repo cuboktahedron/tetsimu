@@ -136,11 +136,12 @@
   });
 
   test('デシリアライズされること', function() {
-    nexts.deserialize('asKU');
+    nexts.deserialize('9jBT');
     nexts.next();
-    nexts.deserialize('asKU');
+    nexts.deserialize('9jBT');
 
     deepEqual(nexts.types(), [
+      C.CellType.I,
       C.CellType.I,
       C.CellType.J,
       C.CellType.L,
@@ -164,9 +165,10 @@
       C.CellType.T,
       C.CellType.Z
     ]);
-    nexts.next();
+    deepEqual(nexts.serialize(), '9jBT');
 
-    deepEqual(nexts.serialize(), 'asKU');
+    nexts.next();
+    deepEqual(nexts.serialize(), '9jBT');
   });
 
   test('指定位置のツモが取得できること', function() {
