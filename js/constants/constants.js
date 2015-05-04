@@ -226,6 +226,7 @@
     TST: '8',
     TSM: '9',
     TS: '10',
+    OverTetris: '11',
   };
 
   Constants.StepType = {

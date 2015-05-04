@@ -15,6 +15,7 @@ var DescriptionSimuPanel = React.createClass({
     trickNames[C.Constants.Trick.TST] = 'TSpin Triple';
     trickNames[C.Constants.Trick.TSM] = 'TSpin Mini';
     trickNames[C.Constants.Trick.TS] = 'TSpin';
+    trickNames[C.Constants.Trick.OverTetris] = 'Over Tetris';
 
     return trickNames;
   })(),

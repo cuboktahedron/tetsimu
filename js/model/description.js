@@ -84,6 +84,9 @@
         case line === 4:
           data.trick = C.Constants.Trick.Tetris;
           break;
+        case line > 4:
+          data.trick = C.Constants.Trick.OverTetris;
+          break;
       }
 
       if (this.data()) {

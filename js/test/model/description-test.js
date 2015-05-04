@@ -134,6 +134,18 @@
     });
   });
 
+  test('Overテトリス確認', function() {
+    description.ren(2);
+    description.clearLineNum(5);
+    description.fixData();
+
+    deepEqual(description.data(), {
+      ren: 2,
+      b2b: false,
+      trick: C.Constants.Trick.OverTetris
+    });
+  });
+
   test('TS確認', function() {
     description.ren(0);
     description.spinType(C.Constants.SpinType.TSpin);
