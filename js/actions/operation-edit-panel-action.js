@@ -40,6 +40,18 @@
       });
     },
 
+    nextUp: function() {
+      C.AppDispatcher.handleViewAction({
+        actionType: C.Constants.Action.Edit.BackNext,
+      });
+    },
+
+    nextDown: function() {
+      C.AppDispatcher.handleViewAction({
+        actionType: C.Constants.Action.Edit.ForwardNext,
+      });
+    },
+
     selectType: function(type) {
       C.AppDispatcher.handleViewAction({
         actionType: C.Constants.Action.Edit.SelectType,

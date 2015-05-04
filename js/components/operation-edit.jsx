@@ -242,6 +242,34 @@ var OperationEditPanel = React.createClass({
     C.OperationEditPanelAction.fieldDown();
   },
 
+  _nextUp: function(state) {
+    if (state.intervalDown) {
+      this.onNextUp()
+    }
+  },
+
+  onNextUp: function() {
+    if (this.state.configuring) {
+      return;
+    }
+
+    C.OperationEditPanelAction.nextUp();
+  },
+
+  _nextDown: function(state) {
+    if (state.intervalDown) {
+      this.onNextDown()
+    }
+  },
+
+  onNextDown: function() {
+    if (this.state.configuring) {
+      return;
+    }
+
+    C.OperationEditPanelAction.nextDown();
+  },
+
   render: function() {
     var url = ''
       , st = this.state.selectedType;

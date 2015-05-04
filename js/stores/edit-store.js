@@ -180,6 +180,9 @@
     },
 
     backNext: function(action) {
+      if (this._nextIndex < -5) {
+        return;
+      }
       this._nextIndex--;
       this.emit(C.Constants.Event.Change);
     },
