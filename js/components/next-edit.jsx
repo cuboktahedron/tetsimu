@@ -248,7 +248,7 @@ var NextEditItem = React.createClass({
 
     return <div className="next-edit">
              {this.props.isPrev ?
-               <div className="prev-index">{this.props.index}</div>
+               <div className="prev-index">{-this.props.index}</div>
                :
                <div className="index" onClick={this.onMenuExpand} onMouseLeave={this.onMenuContraction}>
                  {this.props.index + 1}

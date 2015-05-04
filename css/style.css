@@ -202,7 +202,17 @@ body {
   position: relative;
 }
 
-.next-edit div.prev-index,
+.next-edit div.prev-index {
+  background-color: gray;
+  border 2px solid gray;
+  border-radius: 4px;
+  color: white;
+  left: 4px;
+  min-width: 32px;
+  position: absolute;
+  text-align: center;
+}
+
 .next-edit div.index {
   background-color: white;
   border 2px solid gray;
