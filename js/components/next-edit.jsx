@@ -38,6 +38,14 @@ var NextEditPanel = React.createClass({
     C.NextEditAction.forward();
   },
 
+  onScroll: function(deltaY) {
+    if (deltaY < 0) {
+      this.onBack();
+    } else {
+      this.onForward();
+    }
+  },
+
   render: function() {
     var that = this
       , index = this.state.index
@@ -76,14 +84,7 @@ var NextEditPanel = React.createClass({
       }
     }
 
-    return <div className="next-panel" onWheel={
-      function(e) {
-        if (e.deltaY < 0) {
-          that.onBack();
-        } else {
-          that.onForward();
-        }
-      }}>
+    return <div className="next-panel" onWheel={ function(e) { that.onScroll(e.deltaY); }}>
         <h1>NEXT</h1>
         <a href="javascript:void(0)" className={"arrow" + ((this.state.index < -5) ? " invisible" : "")} onClick={this.onBack}>▲</a>
           {nexts}
