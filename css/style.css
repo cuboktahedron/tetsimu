@@ -202,16 +202,34 @@ body {
   position: relative;
 }
 
-.next-edit .index{
+.next-edit div.index{
   background-color: white;
   border 2px solid gray;
   border-radius: 4px;
   color: black;
   left: 4px;
+  min-width: 32px;
   position: absolute;
   text-align: center;
   top: 4px;
-  min-width: 32px;
+}
+
+.next-edit div.index:hover {
+  background-color: red;
+  cursor: pointer;
+}
+
+.next-edit div.index .menuItem
+{
+  background-color: gray;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+
+.next-edit div.index .menuItem:hover {
+  background-color: blue;
+  cursor: pointer;
 }
 
 .next.fixed {
@@ -444,5 +462,9 @@ div.color-pallet a:hover {
 
 .invisible {
   visibility: hidden;
+}
+
+.none {
+  display: none;
 }
 

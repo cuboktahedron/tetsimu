@@ -189,6 +189,14 @@
       this.emit(C.Constants.Event.Change);
     },
 
+    deleteNext: function(action) {
+      this.emit(C.Constants.Event.Change);
+    },
+
+    insertNext: function(action) {
+      this.emit(C.Constants.Event.Change);
+    },
+
     setNext: function(action) {
       var selectedType = this._selectedType;
       if (selectedType === C.CellType.Ojama) {
@@ -259,11 +267,17 @@
       case C.Constants.Action.Edit.ChangeModeToSimu:
         EditStore.changeModeToSimu(action);
         break;
+      case C.Constants.Action.Edit.DeleteNext:
+        EditStore.deleteNext(action);
+        break;
       case C.Constants.Action.Edit.EndSetCell:
         EditStore.endSetCell(action);
         break;
       case C.Constants.Action.Edit.ForwardNext:
         EditStore.forwardNext(action);
+        break;
+      case C.Constants.Action.Edit.InsertNext:
+        EditStore.insertNext(action);
         break;
       case C.Constants.Action.Edit.SelectType:
         EditStore.selectType(action);

@@ -93,8 +93,34 @@ var NextEditPanel = React.createClass({
 });
 
 var NextEditItem = React.createClass({
+  getInitialState: function() {
+    return {
+      menuExpanded: false,
+    };
+  },
+
   setNext: function(index) {
     C.NextEditAction.setNext(index);
+  },
+
+  onMenuExpand: function() {
+    this.setState({
+      menuExpanded: true
+    });
+  },
+
+  onMenuContraction: function() {
+    this.setState({
+      menuExpanded: false
+    });
+  },
+
+  onInsert: function(index) {
+    C.NextEditAction.insertNext(index);
+  },
+
+  onDelete: function(index) {
+    C.NextEditAction.deleteNext(index);
   },
 
   render: function() {
@@ -221,7 +247,13 @@ var NextEditItem = React.createClass({
     }
 
     return <div className="next-edit">
-             <div className="index">{this.props.index}</div>
+             <div className="index" onClick={this.onMenuExpand} onMouseLeave={this.onMenuContraction}>
+               {this.props.index}
+               <div className={'menu' + (that.state.menuExpanded ? '' : ' none')}>
+                 <div className="menuItem" onClick={ function() { that.onInsert(that.props.index); }}>＋</div>
+                 <div className="menuItem" onClick={ function() { that.onDelete(that.props.index); }}>－</div>
+               </div>
+             </div>
              <div className="next" onClick={ function() { that.setNext(that.props.index); }} >
                {structure}
              </div>
