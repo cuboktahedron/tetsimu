@@ -214,6 +214,28 @@
       this.emit(C.Constants.Event.Change);
     },
 
+    buildDownField: function(action) {
+      var types = this._field.types();
+      types.splice(0, 1);
+      types.push(types[0].map(function() {
+        return C.CellType.None;
+      }));
+      this._field.types(types);
+
+      this.emit(C.Constants.Event.Change);
+    },
+
+    buildUpField: function(action) {
+      var types = this._field.types();
+      types.splice(types.length - 1, 1);
+      types.unshift(types[0].map(function() {
+        return C.CellType.Ojama;
+      }));
+      this._field.types(types);
+
+      this.emit(C.Constants.Event.Change);
+    },
+
     selectType: function(action) {
       this._selectedType = action.type;
       this.emit(C.Constants.Event.Change);
@@ -256,6 +278,12 @@
         break;
       case C.Constants.Action.Edit.BeginSetCell:
         EditStore.beginSetCell(action);
+        break;
+      case C.Constants.Action.Edit.BuildDownField:
+        EditStore.buildDownField(action);
+        break;
+      case C.Constants.Action.Edit.BuildUpField:
+        EditStore.buildUpField(action);
         break;
       case C.Constants.Action.Edit.Cancel:
         EditStore.cancel(action);

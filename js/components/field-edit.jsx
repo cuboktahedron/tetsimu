@@ -71,6 +71,18 @@ var FieldEditPanel = React.createClass({
     C.FieldEditAction.endEdit(x, y);
   },
 
+  onBuildUp: function() {
+    if (this.state.configuring) {
+      return;
+    }
+
+    C.FieldEditAction.buildUp();
+  },
+
+  onBuildDown: function() {
+    C.FieldEditAction.buildDown();
+  },
+
   render: function() {
     var that = this;
 
@@ -88,6 +100,10 @@ var FieldEditPanel = React.createClass({
               </tr>
           }).reverse()}
         </table>
+        <div className="build-blocks">
+          <div className="arrow" onClick={this.onBuildUp}>▲</div>
+          <div className="arrow" onClick={this.onBuildDown}>▼</div>
+        </div>
       </div>
     }
 });

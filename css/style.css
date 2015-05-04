@@ -66,6 +66,27 @@ body {
   width: 24px;
 }
 
+.build-blocks {
+  margin: 0px; auto;
+  padding: 0 8px;
+  width: 95%;
+}
+
+.build-blocks .arrow {
+  background-color: black;
+  border: solid 2px gray;
+  color: white;
+  cursor: pointer;
+  float: left;
+  margin: 2px;
+  text-align: center;
+  width: 45%;
+}
+
+.build-blocks .arrow:hover {
+  background-color: red;
+}
+
 .ghost-cell {
   opacity: 0.5;
 }

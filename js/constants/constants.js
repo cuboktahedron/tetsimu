@@ -18,6 +18,8 @@
     Edit: {
       BackNext: 'edit-backNext',
       BeginSetCell: 'edit-beginSetCell',
+      BuildDownField: 'edit-buildDownField',
+      BuildUpField: 'edit-buildUpField',
       Cancel: 'edit-cancel',
       ChangeModeToSimu: 'edit-changeModeToSimu',
       CreateUrlParameters: 'edit-createUrlParameters',

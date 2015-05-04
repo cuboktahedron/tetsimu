@@ -10,6 +10,18 @@
       })
     },
 
+    buildDown: function() {
+      C.AppDispatcher.handleViewAction({
+        actionType: C.Constants.Action.Edit.BuildDownField,
+      });
+    },
+
+    buildUp: function() {
+      C.AppDispatcher.handleViewAction({
+        actionType: C.Constants.Action.Edit.BuildUpField,
+      });
+    },
+
     setCell: function(x, y) {
       C.AppDispatcher.handleViewAction({
         actionType: C.Constants.Action.Edit.SetCell,
