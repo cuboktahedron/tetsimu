@@ -99,6 +99,12 @@ var NextEditItem = React.createClass({
     };
   },
 
+  componentWillReceiveProps: function(nextProps) {
+    this.setState({
+      menuExpanded: false,
+    });
+  },
+
   setNext: function(index) {
     C.NextEditAction.setNext(index);
   },
