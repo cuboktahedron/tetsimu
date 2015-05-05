@@ -151,7 +151,7 @@ var HoldEditPanel = React.createClass({
         clazz = "hold cannot-hold";
       }
 
-      return <div className="hold-panel">
+      return <div className="hold-edit-panel">
                <h1>HOLD</h1>
                <div className={clazz} onClick={this.onSetHold}>
                  {structure}

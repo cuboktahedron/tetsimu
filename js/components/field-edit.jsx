@@ -94,7 +94,7 @@ var FieldEditPanel = React.createClass({
   render: function() {
     var that = this;
 
-    return <div className="field-panel">
+    return <div className="field-edit-panel">
         <table className="field" onWheel={ function(e) { that.onScroll(e.deltaY); }}>
           {this.state.types.map(function(row, y) {
             return <tr className="field-line" key={y}>

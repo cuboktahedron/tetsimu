@@ -46,8 +46,13 @@ body {
   color: #603030;
 }
 
-.field-panel {
+.field-panel,
+.field-edit-panel {
   float:left;
+}
+
+.field-edit-panel {
+  cursor: crosshair;
 }
 
 .field {
@@ -127,10 +132,8 @@ body {
   background: red;
 }
 
-.hold-panel {
-}
-
-.hold-panel h1 {
+.hold-panel h1,
+.hold-edit-panel h1 {
   background: #d03030;
   border: solid 2px gray;
   border-radius: 8px;
@@ -146,6 +149,10 @@ body {
   margin: 8px auto;
   padding: 16px;
   width: 72px;
+}
+
+.hold-edit-panel .hold {
+  cursor: crosshair;
 }
 
 .hold.cannot-hold {
@@ -262,6 +269,10 @@ body {
 .next-edit div.index .menuItem:hover {
   background-color: blue;
   cursor: pointer;
+}
+
+.next-edit .next {
+  cursor: crosshair;
 }
 
 .next.fixed {
