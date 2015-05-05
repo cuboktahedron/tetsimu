@@ -67,7 +67,11 @@
       CreateUrlParameters: 'replay-createUrlParameters',
       Forward: 'replay-forward',
       Initialize: 'replay-initialize'
-    }
+    },
+
+    Share: {
+      ToggleNextVisible: 'share-toggleNextVisible',
+    },
   };
 
   Constants.Event = {

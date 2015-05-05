@@ -2,8 +2,13 @@
  * @jsx React.DOM
  */
 var NextItem = React.createClass({
+  onToggleVisible: function() {
+    C.NextItemAction.toggleNextVisible(this.props.index);
+  },
+
   render: function() {
-    var structure;
+    var that = this
+      , structure;
 
     switch (this.props.type) {
     case undefined:
@@ -124,8 +129,12 @@ var NextItem = React.createClass({
       throw new Error('invalid type(' + this.props.type + ')');
     }
 
-    return <div className={"next" + (this.props.fixed ? " fixed" : "") + (this.props.visible ? "" : " invisible")}>
-             {structure}
-           </div>
+    if (this.props.visible) {
+      return <div className={"next" + (this.props.fixed ? " fixed" : "")} onClick={ that.onToggleVisible }>
+              {structure}
+             </div>
+    } else {
+      return <div className="next-hidden" onClick={ that.onToggleVisible }></div>
+    }
   }
 });

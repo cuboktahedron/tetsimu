@@ -393,6 +393,11 @@
       this.emit(C.Constants.Event.ChangeMode, mode, params);
     },
 
+    toggleNextVisible: function(action) {
+      this._nextsVisibled[action.index] = !this._nextsVisibled[action.index];
+      this.emit(C.Constants.Event.Change);
+    },
+
     addChangeListener: function(callback) {
       this.addListener(C.Constants.Event.Change, callback);
     },
@@ -466,6 +471,9 @@
         break;
       case C.Constants.Action.Simu.BackToEditMode:
         SimuStore.backToEditMode(action);
+        break;
+      case C.Constants.Action.Share.ToggleNextVisible:
+        SimuStore.toggleNextVisible(action);
         break;
 
       default:

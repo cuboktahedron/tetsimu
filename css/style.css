@@ -217,13 +217,19 @@ body {
   float: left;
 }
 
-.next {
+.next,
+.next-hidden {
   background: #202020;
   border: solid 2px gray;
   border-radius: 32px;
+  height: 48px;
   margin: 8px auto;
   padding: 16px;
   width: 72px;
+}
+
+.next-hidden {
+  background: #b0b0b0;
 }
 
 .next-edit {

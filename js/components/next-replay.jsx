@@ -19,7 +19,8 @@ var NextReplayPanel = React.createClass({
 
   onChange: function() {
     this.setState({
-      nexts: C.ReplayStore.nexts()
+      nexts: C.ReplayStore.nexts(),
+      nextsVisibled: C.SimuStore.nextsVisibled(),
     });
   },
 

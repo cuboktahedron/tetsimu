@@ -24,7 +24,7 @@
       this._hold = new C.Hold();
       this._histories = new C.Histories();
       this._nexts = new C.Nexts();
-      this._nextsVisibled= [true, true, true, true, true];
+      this._nextsVisibled = [true, true, true, true, true];
       this._description = new C.Description();
       this._steps = new C.Steps();
       this.__currentStep = null;
@@ -256,6 +256,11 @@
       this.emit(C.Constants.Event.ChangeMode, mode, params);
     },
 
+    toggleNextVisible: function(action) {
+      this._nextsVisibled[action.index] = !this._nextsVisibled[action.index];
+      this.emit(C.Constants.Event.Change);
+    },
+
     addChangeListener: function(callback) {
       this.addListener(C.Constants.Event.Change, callback);
     },
@@ -302,6 +307,9 @@
         break;
       case C.Constants.Action.Replay.ChangeModeToSimu:
         ReplayStore.changeModeToSimu(action);
+        break;
+      case C.Constants.Action.Share.ToggleNextVisible:
+        ReplayStore.toggleNextVisible(action);
         break;
     }
 

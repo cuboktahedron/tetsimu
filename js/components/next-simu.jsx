@@ -5,8 +5,8 @@ var NextSimuPanel = React.createClass({
   getInitialState: function () {
     return {
       nexts: C.SimuStore.nexts(),
-      nextsVisibled: C.SimuStore.nextsVisibled(),
       nextsFixed: C.SimuStore.nextsFixed(),
+      nextsVisibled: C.SimuStore.nextsVisibled(),
     };
   },
 
@@ -21,7 +21,8 @@ var NextSimuPanel = React.createClass({
   onChange: function() {
     this.setState({
       nexts: C.SimuStore.nexts(),
-      nextsFixed: C.SimuStore.nextsFixed()
+      nextsFixed: C.SimuStore.nextsFixed(),
+      nextsVisibled: C.SimuStore.nextsVisibled(),
     });
   },
 
