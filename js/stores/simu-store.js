@@ -10,6 +10,7 @@
     _hold: new C.Hold(),
     _histories: new C.Histories(),
     _nexts: new C.Nexts(),
+    _nextsVisibled: [],
     _description: new C.Description(),
     _nextGenerator: new C.NextGenerator(),
     _steps: new C.Steps(),
@@ -25,6 +26,7 @@
       this._initialized = true;
       this._context = action.context
       this._seed = this._context.seed == null ? C.Random.nextInt(1000000) : this._context.seed;
+      this._nextsVisibled= [true, true, true, true, true];
 
       this._init(action.context);
       this.emit(C.Constants.Event.Change);
@@ -88,6 +90,10 @@
 
     nextsFixed: function() {
       return this._nexts.nextTypesFixed();
+    },
+
+    nextsVisibled: function() {
+      return this._nextsVisibled.concat();
     },
 
     current: function() {

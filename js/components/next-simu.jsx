@@ -5,7 +5,8 @@ var NextSimuPanel = React.createClass({
   getInitialState: function () {
     return {
       nexts: C.SimuStore.nexts(),
-      nextsFixed: C.SimuStore.nextsFixed()
+      nextsVisibled: C.SimuStore.nextsVisibled(),
+      nextsFixed: C.SimuStore.nextsFixed(),
     };
   },
 
@@ -27,11 +28,11 @@ var NextSimuPanel = React.createClass({
   render: function() {
     return <div className="next-panel">
     <h1>NEXT</h1>
-    <NextItem type={this.state.nexts[0]} fixed={!!this.state.nextsFixed[0]} index="0" />
-    <NextItem type={this.state.nexts[1]} fixed={!!this.state.nextsFixed[1]} index="1"/>
-    <NextItem type={this.state.nexts[2]} fixed={!!this.state.nextsFixed[2]} index="2"/>
-    <NextItem type={this.state.nexts[3]} fixed={!!this.state.nextsFixed[3]} index="3"/>
-    <NextItem type={this.state.nexts[4]} fixed={!!this.state.nextsFixed[4]} index="4"/>
+    <NextItem type={this.state.nexts[0]} fixed={!!this.state.nextsFixed[0]} index="0" visible={!!this.state.nextsVisibled[0]} />
+    <NextItem type={this.state.nexts[1]} fixed={!!this.state.nextsFixed[1]} index="1" visible={!!this.state.nextsVisibled[1]} />
+    <NextItem type={this.state.nexts[2]} fixed={!!this.state.nextsFixed[2]} index="2" visible={!!this.state.nextsVisibled[2]} />
+    <NextItem type={this.state.nexts[3]} fixed={!!this.state.nextsFixed[3]} index="3" visible={!!this.state.nextsVisibled[3]} />
+    <NextItem type={this.state.nexts[4]} fixed={!!this.state.nextsFixed[4]} index="4" visible={!!this.state.nextsVisibled[4]} />
     </div>
   }
 });

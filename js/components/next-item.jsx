@@ -124,7 +124,7 @@ var NextItem = React.createClass({
       throw new Error('invalid type(' + this.props.type + ')');
     }
 
-    return <div className={"next" + (this.props.fixed ? " fixed" : "")}>
+    return <div className={"next" + (this.props.fixed ? " fixed" : "") + (this.props.visible ? "" : " invisible")}>
              {structure}
            </div>
   }

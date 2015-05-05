@@ -9,6 +9,7 @@
     _hold: new C.Hold(),
     _histories: new C.Histories(),
     _nexts: new C.Nexts(),
+    _nextsVisibled: [],
     _description: new C.Description(),
     _steps: new C.Steps(),
     _currentStep: null,
@@ -23,6 +24,7 @@
       this._hold = new C.Hold();
       this._histories = new C.Histories();
       this._nexts = new C.Nexts();
+      this._nextsVisibled= [true, true, true, true, true];
       this._description = new C.Description();
       this._steps = new C.Steps();
       this.__currentStep = null;
@@ -59,6 +61,10 @@
 
     nexts: function() {
       return this._nexts.nextTypes();
+    },
+
+    nextsVisibled: function() {
+      return this._nextsVisibled.concat();
     },
 
     current: function() {
