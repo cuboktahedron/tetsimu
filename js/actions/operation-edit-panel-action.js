@@ -58,6 +58,12 @@
         type: type
       });
     },
+
+    setHold: function() {
+      C.AppDispatcher.handleViewAction({
+        actionType: C.Constants.Action.Edit.SetHold,
+      });
+    },
   };
 
   C.OperationEditPanelAction = OperationEditPanelAction;

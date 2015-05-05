@@ -65,6 +65,7 @@
             'selectTypeZ': '7',
             'selectTypeOjama': '8',
             'selectTypeNone': '9',
+            'setHold': 'h',
           },
 
           simu: {

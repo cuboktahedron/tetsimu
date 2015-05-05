@@ -284,6 +284,20 @@ var OperationEditPanel = React.createClass({
     C.OperationEditPanelAction.nextDown();
   },
 
+  _setHold: function(state) {
+    if (state.down) {
+      this.onSetHold();
+    }
+  },
+
+  onSetHold: function() {
+    if (this.state.configuring) {
+      return;
+    }
+
+    C.OperationEditPanelAction.setHold();
+  },
+
   render: function() {
     var url = ''
       , st = this.state.selectedType;
