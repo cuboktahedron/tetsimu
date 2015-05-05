@@ -161,20 +161,20 @@ body {
   border: solid 2px red;
 }
 
-.hold-cell {
+.notice-cell {
   height: 24px;
   width: 24px;
 }
 
-.hold-none {
+.notice-none {
   margin: 24px 0;
 }
 
-.hold-i {
+.notice-i {
   margin: 12px 0;
 }
 
-.hold-o {
+.notice-o {
   margin-left: 12px;
 }
 
@@ -280,23 +280,6 @@ body {
 .next.fixed {
   background: #600000;
   border: 2px solid red;
-}
-
-.next-cell {
-  height: 24px;
-  width: 24px;
-}
-
-.next-none {
-  margin: 24px 0;
-}
-
-.next-i {
-  margin: 12px 0;
-}
-
-.next-o {
-  margin-left: 12px;
 }
 
 .left-panel {

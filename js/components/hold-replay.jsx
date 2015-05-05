@@ -27,111 +27,111 @@ var HoldReplayPanel = React.createClass({
   render: function() {
       switch (this.state.type) {
       case C.CellType.None:
-        structure = <table className="hold-none" key="none" />
+        structure = <table className="notice-none" key="none" />
         break;
 
       case C.CellType.I:
         structure =
-          <table className="hold-i" key="i">
-            <tr className="hold-line">
-              <td className="hold-cell type-i" />
-              <td className="hold-cell type-i" />
-              <td className="hold-cell type-i" />
-              <td className="hold-cell type-i" />
+          <table className="notice-i" key="i">
+            <tr>
+              <td className="notice-cell type-i" />
+              <td className="notice-cell type-i" />
+              <td className="notice-cell type-i" />
+              <td className="notice-cell type-i" />
             </tr>
           </table>
         break;
 
       case C.CellType.J:
         structure =
-          <table className="hold-j" key="j">
-            <tr className="hold-line">
-              <td className="hold-cell type-j" />
-              <td className="hold-cell" />
-              <td className="hold-cell" />
+          <table className="notice-j" key="j">
+            <tr>
+              <td className="notice-cell type-j" />
+              <td className="notice-cell" />
+              <td className="notice-cell" />
             </tr>
-            <tr className="hold-line">
-              <td className="hold-cell type-j" />
-              <td className="hold-cell type-j" />
-              <td className="hold-cell type-j" />
+            <tr>
+              <td className="notice-cell type-j" />
+              <td className="notice-cell type-j" />
+              <td className="notice-cell type-j" />
             </tr>
           </table>
         break;
 
       case C.CellType.L:
         structure =
-          <table className="hold-l" key="l">
-            <tr className="hold-line">
-              <td className="hold-cell" />
-              <td className="hold-cell" />
-              <td className="hold-cell type-l" />
+          <table className="notice-l" key="l">
+            <tr>
+              <td className="notice-cell" />
+              <td className="notice-cell" />
+              <td className="notice-cell type-l" />
             </tr>
-            <tr className="hold-line">
-              <td className="hold-cell type-l" />
-              <td className="hold-cell type-l" />
-              <td className="hold-cell type-l" />
+            <tr>
+              <td className="notice-cell type-l" />
+              <td className="notice-cell type-l" />
+              <td className="notice-cell type-l" />
             </tr>
           </table>
         break;
 
       case C.CellType.O:
         structure =
-          <table className="hold-o" key="o">
-            <tr className="next-line">
-              <td className="next-cell type-o" />
-              <td className="next-cell type-o" />
+          <table className="notice-o" key="o">
+            <tr>
+              <td className="notice-cell type-o" />
+              <td className="notice-cell type-o" />
             </tr>
-            <tr className="next-line">
-              <td className="next-cell type-o" />
-              <td className="next-cell type-o" />
+            <tr>
+              <td className="notice-cell type-o" />
+              <td className="notice-cell type-o" />
             </tr>
           </table>
         break;
 
       case C.CellType.S:
         structure =
-          <table className="hold-s" key="s">
-            <tr className="hold-line">
-              <td className="hold-cell" />
-              <td className="hold-cell type-s" />
-              <td className="hold-cell type-s" />
+          <table className="notice-s" key="s">
+            <tr>
+              <td className="notice-cell" />
+              <td className="notice-cell type-s" />
+              <td className="notice-cell type-s" />
             </tr>
-            <tr className="hold-line">
-              <td className="hold-cell type-s" />
-              <td className="hold-cell type-s" />
-              <td className="hold-cell" />
+            <tr>
+              <td className="notice-cell type-s" />
+              <td className="notice-cell type-s" />
+              <td className="notice-cell" />
             </tr>
           </table>
         break;
 
       case C.CellType.T:
         structure =
-          <table className="hold-t" key="t">
-            <tr className="hold-line">
-              <td className="hold-cell" />
-              <td className="hold-cell type-t" />
-              <td className="hold-cell" />
+          <table className="notice-t" key="t">
+            <tr>
+              <td className="notice-cell" />
+              <td className="notice-cell type-t" />
+              <td className="notice-cell" />
             </tr>
-            <tr className="hold-line">
-              <td className="hold-cell type-t" />
-              <td className="hold-cell type-t" />
-              <td className="hold-cell type-t" />
+            <tr>
+              <td className="notice-cell type-t" />
+              <td className="notice-cell type-t" />
+              <td className="notice-cell type-t" />
             </tr>
           </table>
         break;
 
       case C.CellType.Z:
         structure =
-          <table className="hold-z" key="z">
-            <tr className="hold-line">
-              <td className="hold-cell type-z" />
-              <td className="hold-cell type-z" />
-              <td className="hold-cell" />
+          <table className="notice-z" key="z">
+            <tr>
+              <td className="notice-cell type-z" />
+              <td className="notice-cell type-z" />
+              <td className="notice-cell" />
             </tr>
-            <tr className="hold-line">
-              <td className="hold-cell" />
-              <td className="hold-cell type-z" />
-              <td className="hold-cell type-z" />
+            <tr>
+              <td className="notice-cell" />
+              <td className="notice-cell type-z" />
+              <td className="notice-cell type-z" />
             </tr>
           </table>
         break;
