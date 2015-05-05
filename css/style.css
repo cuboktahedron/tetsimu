@@ -146,6 +146,7 @@ body {
   background: #202020;
   border: solid 2px gray;
   border-radius: 32px;
+  height: 48px;
   margin: 8px auto;
   padding: 16px;
   width: 72px;
@@ -158,10 +159,6 @@ body {
 .hold.cannot-hold {
   background: #600000;
   border: solid 2px red;
-}
-
-.hold-line {
-
 }
 
 .hold-cell {
@@ -180,7 +177,6 @@ body {
 .hold-o {
   margin-left: 12px;
 }
-
 
 .next-panel {
   float: left;
@@ -284,10 +280,6 @@ body {
 .next.fixed {
   background: #600000;
   border: 2px solid red;
-}
-
-.next-line {
-
 }
 
 .next-cell {
@@ -398,9 +390,6 @@ ul.config-list input {
 
 .config-button-area button {
   margin: 2px;
-}
-
-#config-tab-bar {
 }
 
 .operation-panel {
