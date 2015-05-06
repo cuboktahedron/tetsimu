@@ -68,7 +68,6 @@
       CreateUrlParameters: 'replay-createUrlParameters',
       Forward: 'replay-forward',
       Initialize: 'replay-initialize',
-      ToggleNextVisible: 'replay-toggleNextVisible',
     },
   };
 

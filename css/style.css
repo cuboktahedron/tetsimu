@@ -277,8 +277,6 @@ body {
   cursor: crosshair;
 }
 
-.next-replay .next,
-.next-replay .next-hidden,
 .next-simu .next,
 .next-simu .next-hidden {
   cursor: pointer;

@@ -309,9 +309,6 @@
       case C.Constants.Action.Replay.ChangeModeToSimu:
         ReplayStore.changeModeToSimu(action);
         break;
-      case C.Constants.Action.Replay.ToggleNextVisible:
-        ReplayStore.toggleNextVisible(action);
-        break;
     }
 
     return true;

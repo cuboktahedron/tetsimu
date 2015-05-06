@@ -37,22 +37,18 @@ var NextReplayPanel = React.createClass({
 });
 
 var NextItemReplay = React.createClass({
-  onToggleVisible: function() {
-    C.NextReplayAction.toggleNextVisible(this.props.index);
-  },
-
   render: function() {
     var that = this;
 
     if (this.props.visible) {
       return <div className="next-replay">
-               <div className={"next" + (this.props.fixed ? " fixed" : "")} onClick={ that.onToggleVisible }>
+               <div className={"next" + (this.props.fixed ? " fixed" : "")}>
                  <Notices type={this.props.type} />
                </div>
              </div>
     } else {
       return <div className="next-replay">
-               <div className="next-hidden" onClick={ that.onToggleVisible } />
+               <div className="next-hidden" />
              </div>
     }
   }
