@@ -307,6 +307,7 @@
         , parameters = []
         , f = context.field
         , ns = this._nexts.serialize()
+        , nv = this._nextsVisibled.serialize()
         , ss = this._steps.serialize()
         , h = context.hold
         , seed = this._seed;
@@ -317,6 +318,10 @@
 
       if (!!ns) {
         parameters.push('ns=' + ns);
+      }
+
+      if (!!nv && nv != 'v') {
+        parameters.push('nv=' + nv);
       }
 
       if (!!ss) {

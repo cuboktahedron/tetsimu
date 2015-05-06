@@ -82,6 +82,7 @@
         , f = this._field.serialize()
         , h = this._hold.serialize()
         , ns = this._nexts.serialize()
+        , nv = this._nextsVisibled.serialize()
         , ps = this._prevs.serialize();
 
       if (!!f) {
@@ -90,6 +91,10 @@
 
       if (!!ns) {
         parameters.push('ns=' + ns);
+      }
+
+      if (!!nv && nv != 'v') {
+        parameters.push('nv=' + nv);
       }
 
       if (!!ps) {

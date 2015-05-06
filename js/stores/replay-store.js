@@ -214,6 +214,7 @@
         , parameters = []
         , f = context.field
         , ns = context.nexts
+        , nv = this._nextsVisibled.serialize()
         , ss = context.steps
         , h = context.hold;
 
@@ -223,6 +224,10 @@
 
       if (!!ns) {
         parameters.push('ns=' + ns);
+      }
+
+      if (!!nv && nv != 'v') {
+        parameters.push('nv=' + nv);
       }
 
       if (!!ss) {
