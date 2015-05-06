@@ -128,7 +128,20 @@
         x: this._width / 2 - 1,
         y: this._innerHeight - 2,
       };
-    }
+    },
+
+    isPerfectCleared: function() {
+      var x, y;
+      for (y = 0; y <= this._maxHeight(); y++) {
+        for (x = 0; x <= this._maxWidth(); x++) {
+          if (C.CellType.isBlock(this.type(x, y))) {
+            return false;
+          }
+        }
+      }
+
+      return true;
+    },
   };
 
   C.Field = Field;

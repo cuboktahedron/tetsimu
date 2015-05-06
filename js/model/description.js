@@ -6,6 +6,7 @@
       ren: 0,
       clearLineNum: 0,
       spinType: C.Constants.SpinType.None,
+      perfectCleared: false,
       prevTrick: C.Constants.Trick.None
     });
   };
@@ -42,6 +43,16 @@
       }
     },
 
+    perfectCleared: function(value) {
+      if (value === undefined) {
+        // get
+        return this._perfectCleared;
+      } else {
+        // set
+        this._perfectCleared = value;
+      }
+    },
+
     fixData: function() {
       var data = {}
         , spinType = this.spinType()
@@ -49,6 +60,7 @@
         , SpinType = C.Constants.SpinType;
 
       data.ren = this.ren();
+      data.perfectCleared = this.perfectCleared();
 
       switch (true) {
         case line === 0 && spinType === SpinType.TSpin:
@@ -120,6 +132,7 @@
           ren: this._ren,
           clearLineNum: this._clearLineNum,
           spinType: this._spinType,
+          perfectCleared: this._perfectCleared,
           prevTrick: this._prevTrick
         };
       } else {
@@ -127,6 +140,7 @@
         this._ren = value.ren;
         this._clearLineNum = value.clearLineNum;
         this._spinType = value.spinType;
+        this._perfectCleared = value.perfectCleared;
         this._prevTrick = value.prevTrick;
 
         this.fixData();

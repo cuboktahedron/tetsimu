@@ -199,5 +199,15 @@
 
     deepEqual(field.types(), afterField.types(), 'クリア後のフィールド状態の確認');
   });
+
+  test('パーフェクトクリア状態であること', function() {
+    deepEqual(field.isPerfectCleared(), true);
+  });
+
+  test('パーフェクトクリア状態ではないこと', function() {
+    field.type(0, 0, C.CellType.T);
+
+    deepEqual(field.isPerfectCleared(), false);
+  });
 })();
 

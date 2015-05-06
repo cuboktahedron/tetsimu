@@ -119,6 +119,7 @@
       } else {
         this._description.ren(0);
       }
+      this._description.perfectCleared(this._field.isPerfectCleared());
 
       this._hold.release();
       this._forwardCurrent();

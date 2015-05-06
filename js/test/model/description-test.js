@@ -11,6 +11,7 @@
     deepEqual(description.data(), {
       ren: 0,
       b2b: false,
+      perfectCleared: false,
       trick: C.Constants.Trick.None
     });
   });
@@ -23,6 +24,7 @@
     deepEqual(description.data(), {
       ren: 1,
       b2b: false,
+      perfectCleared: false,
       trick: C.Constants.Trick.Single
     });
   });
@@ -36,6 +38,7 @@
     deepEqual(description.data(), {
       ren: 1,
       b2b: false,
+      perfectCleared: false,
       trick: C.Constants.Trick.TSSM
     });
   });
@@ -49,6 +52,7 @@
     deepEqual(description.data(), {
       ren: 1,
       b2b: false,
+      perfectCleared: false,
       trick: C.Constants.Trick.TSS
     });
   });
@@ -61,6 +65,7 @@
     deepEqual(description.data(), {
       ren: 2,
       b2b: false,
+      perfectCleared: false,
       trick: C.Constants.Trick.Double
     });
   });
@@ -74,6 +79,7 @@
     deepEqual(description.data(), {
       ren: 1,
       b2b: false,
+      perfectCleared: false,
       trick: C.Constants.Trick.TSD
     });
 
@@ -83,6 +89,7 @@
     deepEqual(description.data(), {
       ren: 1,
       b2b: true,
+      perfectCleared: false,
       trick: C.Constants.Trick.TSD
     });
   });
@@ -95,6 +102,7 @@
     deepEqual(description.data(), {
       ren: 2,
       b2b: false,
+      perfectCleared: false,
       trick: C.Constants.Trick.Triple
     });
   });
@@ -108,6 +116,7 @@
     deepEqual(description.data(), {
       ren: 1,
       b2b: false,
+      perfectCleared: false,
       trick: C.Constants.Trick.TST
     });
 
@@ -118,6 +127,7 @@
     deepEqual(description.data(), {
       ren: 1,
       b2b: true,
+      perfectCleared: false,
       trick: C.Constants.Trick.TST
     });
   });
@@ -130,6 +140,7 @@
     deepEqual(description.data(), {
       ren: 2,
       b2b: false,
+      perfectCleared: false,
       trick: C.Constants.Trick.Tetris
     });
   });
@@ -142,6 +153,7 @@
     deepEqual(description.data(), {
       ren: 2,
       b2b: false,
+      perfectCleared: false,
       trick: C.Constants.Trick.OverTetris
     });
   });
@@ -155,6 +167,7 @@
     deepEqual(description.data(), {
       ren: 0,
       b2b: false,
+      perfectCleared: false,
       trick: C.Constants.Trick.TS
     });
   });
@@ -168,7 +181,23 @@
     deepEqual(description.data(), {
       ren: 0,
       b2b: false,
+      perfectCleared: false,
       trick: C.Constants.Trick.TSM
+    });
+  });
+
+  test('パーフェクトクリア確認', function() {
+    description.ren(1);
+    description.spinType(C.Constants.SpinType.None);
+    description.clearLineNum(4);
+    description.perfectCleared(true);
+    description.fixData();
+
+    deepEqual(description.data(), {
+      ren: 1,
+      b2b: false,
+      perfectCleared: true,
+      trick: C.Constants.Trick.Tetris,
     });
   });
 })();

@@ -56,6 +56,10 @@ var DescriptionSimuPanel = React.createClass({
       texts.push(<p key="trick">{fqtn}</p>);
     }
 
+    if (data.perfectCleared) {
+      texts.push(<p key="pc">Perfect Clear</p>);
+    }
+
     return <div className="description-panel">
              {texts}
            </div>
