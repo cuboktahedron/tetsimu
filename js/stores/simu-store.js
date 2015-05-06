@@ -472,7 +472,7 @@
       case C.Constants.Action.Simu.BackToEditMode:
         SimuStore.backToEditMode(action);
         break;
-      case C.Constants.Action.Share.ToggleNextVisible:
+      case C.Constants.Action.Simu.ToggleNextVisible:
         SimuStore.toggleNextVisible(action);
         break;
 

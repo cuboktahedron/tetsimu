@@ -1,16 +1,16 @@
 (function() {
   'use strict';
 
-  var NextItemAction = {
+  var NextSimuAction = {
     toggleNextVisible: function(index) {
       C.AppDispatcher.handleViewAction({
-        actionType: C.Constants.Action.Share.ToggleNextVisible,
+        actionType: C.Constants.Action.Simu.ToggleNextVisible,
         index: index,
       })
     },
   };
 
-  C.NextItemAction = NextItemAction;
+  C.NextSimuAction = NextSimuAction;
 })();
 
 

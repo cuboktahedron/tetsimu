@@ -54,6 +54,7 @@
       Hold: 'simu-hold',
       Initialize: 'simu-initialize',
       Move: 'simu-move',
+      ToggleNextVisible: 'simu-toggleNextVisible',
       TurnRight: 'simu-turnRight',
       TurnLeft: 'simu-turnLeft',
       Retry: 'simu-retry'
@@ -66,11 +67,8 @@
       ChangeModeToSimu: 'replay-changeModeToSimu',
       CreateUrlParameters: 'replay-createUrlParameters',
       Forward: 'replay-forward',
-      Initialize: 'replay-initialize'
-    },
-
-    Share: {
-      ToggleNextVisible: 'share-toggleNextVisible',
+      Initialize: 'replay-initialize',
+      ToggleNextVisible: 'replay-toggleNextVisible',
     },
   };
 
