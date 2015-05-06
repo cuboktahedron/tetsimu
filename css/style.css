@@ -277,6 +277,13 @@ body {
   cursor: crosshair;
 }
 
+.next-replay .next,
+.next-replay .next-hidden,
+.next-simu .next,
+.next-simu .next-hidden {
+  cursor: pointer;
+}
+
 .next.fixed {
   background: #600000;
   border: 2px solid red;
