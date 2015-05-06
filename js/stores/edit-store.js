@@ -9,6 +9,7 @@
     _nextIndex: 0,
     _nexts: new C.Nexts(), _prevs: new C.Nexts(),
     _nextGenerator: new C.NextGenerator(),
+    _nextsVisibled: new C.NextsVisibled(),
     _selectedType: C.CellType.I,
     _urlParameters: '',
 
@@ -19,7 +20,8 @@
       }
 
       this._initialized = true;
-      this._context = action.context
+      this._context = action.context;
+      this._nextsVisibled.deserialize(this._context.nextsVisibled);
 
       this._init(action.context);
       this.emit(C.Constants.Event.Change);
@@ -120,6 +122,7 @@
         force: true,
         hold: this._hold.serialize(),
         nexts: C.NextsSerializer.serialize(this._nexts.types()),
+        nextsVisibled: this._nextsVisibled.serialize(),
         prevs: C.NextsSerializer.serialize(this._prevs.types()),
       };
       this.emit(C.Constants.Event.ChangeMode, mode, params);
@@ -132,6 +135,7 @@
         field: '',
         hold: '',
         nexts: '',
+        nextsVisibled: this._nextsVisibled.serialize(),
         prevs: ''
       };
 

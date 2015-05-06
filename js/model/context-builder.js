@@ -9,6 +9,7 @@
       context.field = this._buildField(params);
       context.hold = this._buildHold(params);
       context.nexts = this._buildNexts(params);
+      context.nextsVisibled = this._buildNextsVisibled(params);
       context.prevs = this._buildPrevs(params);
       context.steps = this._buildSteps(params);
       context.seed = this._buildSeed(params);
@@ -30,6 +31,10 @@
 
     _buildNexts: function(params) {
       return params.ns || '';
+    },
+
+    _buildNextsVisibled: function(params) {
+      return params.nv || 'v';
     },
 
     _buildPrevs: function(params) {

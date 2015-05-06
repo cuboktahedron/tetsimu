@@ -26,7 +26,7 @@
       this._initialized = true;
       this._context = action.context
       this._seed = this._context.seed == null ? C.Random.nextInt(1000000) : this._context.seed;
-//      this._nextsVisibled = [true, true, true, true, true];
+      this._nextsVisibled.deserialize(this._context.nextsVisibled);
 
       this._init(action.context);
       this.emit(C.Constants.Event.Change);
@@ -349,6 +349,7 @@
         force: true,
         hold: this._hold.serialize(),
         nexts: nexts.serialize(),
+        nextsVisibled: this._nextsVisibled.serialize(),
         prevs: '',
       };
       this.emit(C.Constants.Event.ChangeMode, mode, params);
@@ -373,6 +374,7 @@
         field: this._context.field,
         hold: this._context.hold,
         nexts: allNexts.serialize(),
+        nextsVisibled: this._nextsVisibled.serialize(),
         prevs: '',
         steps: this._steps.serialize()
       };
@@ -386,6 +388,7 @@
         field: '',
         hold: '',
         nexts: '',
+        nextsVisibled: this._nextsVisibled.serialize(),
         prevs: '',
         steps: ''
       };

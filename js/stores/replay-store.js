@@ -24,7 +24,7 @@
       this._hold = new C.Hold();
       this._histories = new C.Histories();
       this._nexts = new C.Nexts();
-//      this._nextsVisibled = [true, true, true, true, true];
+      this._nextsVisibled.deserialize(this._context.nextsVisibled);
       this._description = new C.Description();
       this._steps = new C.Steps();
       this.__currentStep = null;
@@ -250,6 +250,7 @@
       var params = {
         field: context.field,
         nexts: context.nexts,
+        nextsVisibled: this._nextsVisibled.serialize(),
         prevs: context.prevs,
         hold: context.hold
       };
