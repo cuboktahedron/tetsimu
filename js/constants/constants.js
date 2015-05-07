@@ -1,8 +1,8 @@
 (function() {
   var Constants = {};
 
-  Constants.Version = 0.9;
-  Constants.ConfigVersion = 0.9;
+  Constants.Version = 0.97;
+  Constants.ConfigVersion = 0.97;
 
   Constants.Action = {
     Config: {
