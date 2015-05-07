@@ -12,7 +12,6 @@
   };
 
   Description.prototype = {
-    // TODO: getter/setterを作るUtil関数を作る
     ren: function(ren) {
       if (ren === undefined) {
         // get
