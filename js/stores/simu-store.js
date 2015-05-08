@@ -310,8 +310,7 @@
         , ns = this._nexts.serialize()
         , nv = this._nextsVisibled.serialize()
         , ss = this._steps.serialize()
-        , h = context.hold
-        , seed = this._seed;
+        , h = context.hold;
 
       if (!!f) {
         parameters.push('f=' + f);
@@ -334,7 +333,6 @@
       }
 
       parameters.push('m=' + C.Constants.Mode.Replay);
-      parameters.push('s=' + seed);
       parameters.push('v=' + C.Constants.Version);
 
       this._urlParameters = parameters.join('&');
