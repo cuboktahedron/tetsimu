@@ -120,9 +120,7 @@ var MainPanel = React.createClass({
 
   render: function() {
     // IEでモード切り替え後にショートカットキーがきかなくなる問題を回避する
-    setTimeout(function() {
-      $('body').focus();
-    }, 0);
+    $('body').focus();
 
     if (this.state.mode === C.Constants.Mode.Simu) {
       return <SimuPanel context={this.state.context} />
