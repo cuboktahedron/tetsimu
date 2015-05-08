@@ -145,12 +145,12 @@
       }
     },
 
-    insert: function(index, v) {
+    insertAt: function(index, v) {
       this._types.splice(index, 0, C.CellType.None);
       this.typeAt(index, v);
     },
 
-    delete: function(index) {
+    deleteAt: function(index) {
       this._types.splice(index, 1);
     },
 

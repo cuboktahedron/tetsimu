@@ -219,7 +219,7 @@
       C.CellType.O,
     ]);
 
-    nexts.insert(3, C.CellType.Z);
+    nexts.insertAt(3, C.CellType.Z);
     deepEqual(nexts.types(), [
       C.CellType.I,
       C.CellType.J,
@@ -230,7 +230,7 @@
   });
 
   test('未設定箇所にツモを挿入できること', function() {
-    nexts.insert(3, C.CellType.Z);
+    nexts.insertAt(3, C.CellType.Z);
     deepEqual(nexts.types(), [
       C.CellType.None,
       C.CellType.None,
@@ -247,7 +247,7 @@
       C.CellType.O,
     ]);
 
-    nexts.delete(2);
+    nexts.deleteAt(2);
     deepEqual(nexts.types(), [
       C.CellType.I,
       C.CellType.J,
@@ -260,7 +260,7 @@
       C.CellType.I,
     ]);
 
-    nexts.delete(3);
+    nexts.deleteAt(3);
     deepEqual(nexts.types(), [
       C.CellType.I,
     ]);

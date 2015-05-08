@@ -202,12 +202,12 @@
     },
 
     deleteNext: function(action) {
-      this._nexts.delete(action.index);
+      this._nexts.deleteAt(action.index);
       this.emit(C.Constants.Event.Change);
     },
 
     insertNext: function(action) {
-      this._nexts.insert(action.index, C.CellType.None);
+      this._nexts.insertAt(action.index, C.CellType.None);
       this.emit(C.Constants.Event.Change);
     },
 
