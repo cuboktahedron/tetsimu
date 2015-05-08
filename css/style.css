@@ -307,7 +307,6 @@ body {
 }
 
 .config-panel {
-  -moz-opacity: 0.9;
   background-color: black;
   height: 705px;
   left: 0;
